@@ -3,18 +3,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CategoriesComponent } from './categories/categories.component';
 import { HeaderComponent } from './header/header.component';
-import { UsersComponent } from './users/users.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { AuthModule } from './auth/auth.module';
 import { AuthorsModule } from './authors/authors.module';
 import { BooksModule } from './books/books.module';
 import { CategoriesModule } from './categories/categories.module';
+import { LoginModule } from './login/login.module';
+import { UsersModule } from './users/users.module';
+import { SignupModule } from './signup/signup.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    UsersComponent,
     HeaderComponent,
     SideBarComponent,
   ],
@@ -23,15 +23,18 @@ import { CategoriesModule } from './categories/categories.module';
     MaterialModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AuthModule,
     AuthorsModule,
     BooksModule,
-    CategoriesModule
+    CategoriesModule,
+    LoginModule,
+    SignupModule,
+    UsersModule,
+    HttpClientModule
   ],
   exports: [
-    UsersComponent,
     HeaderComponent,
     SideBarComponent,
+
   ],
 })
 export class FeaturesModule {}

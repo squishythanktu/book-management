@@ -14,4 +14,4 @@ import { UsersComponent } from './users.component';
     ReactiveFormsModule,
   ],
 })
-export class UserModule {}
+export class UsersModule {}
