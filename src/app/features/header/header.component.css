@@ -1,0 +1,17 @@
+mat-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title,
+.header-title:visited,
+.header-title:hover,
+.header-title:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header-actions {
+  cursor: pointer;
+}

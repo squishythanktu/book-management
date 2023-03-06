@@ -1,12 +1,19 @@
-<div class="row">
-    <app-header></app-header>
+<div class="container">
+  <mat-grid-list cols="12" rows="10" rowHeight="4rem">
+    <mat-grid-tile colspan="12" rowspan="1" style="background-color: lightcoral">
+      <div class="header">
+        <app-header></app-header>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="9" style="background-color: lightblue">
+      <div class="sidebar">
+        <app-side-bar></app-side-bar>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="9" rowspan="9" style="background-color: lightgray;">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
-<div class="row">
-    <div class="col-md-3">
-      <app-side-bar></app-side-bar>
-    </div>
-    <div class="col-md-9">
-      <router-outlet></router-outlet>
-    </div>
-</div>
-  

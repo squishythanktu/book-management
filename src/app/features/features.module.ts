@@ -8,10 +8,10 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { AuthorsModule } from './authors/authors.module';
 import { BooksModule } from './books/books.module';
 import { CategoriesModule } from './categories/categories.module';
-import { LoginModule } from './login/login.module';
 import { UsersModule } from './users/users.module';
 import { SignupModule } from './signup/signup.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthorsModule,
     BooksModule,
     CategoriesModule,
-    LoginModule,
+    AuthModule,
     SignupModule,
     UsersModule,
     HttpClientModule

@@ -1,20 +1,20 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginResponseData, LoginService } from './login.service';
+import { LoginResponseData, AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css'],
 })
-export class LoginComponent {
+export class AuthComponent {
   hide = true;
   isLoading = false;
   error: string = null;
 
-  constructor(private loginService: LoginService, private route: Router) {}
+  constructor(private authService: AuthService, private route: Router) {}
 
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -33,11 +33,11 @@ export class LoginComponent {
     const usernameValue = this.loginForm.get('username').value;
     const passwordValue = this.loginForm.get('password').value;
 
-    let LoginObs: Observable<LoginResponseData>;
+    let loginObs$: Observable<LoginResponseData>;
 
-    LoginObs = this.loginService.login(usernameValue, passwordValue);
+    loginObs$ = this.authService.login(usernameValue, passwordValue);
 
-    LoginObs.subscribe(
+    loginObs$.subscribe(
       (resData) => {
         console.log(resData);
         this.isLoading = false;
@@ -52,5 +52,7 @@ export class LoginComponent {
         }, 3000)
       }
     );
+
+    form.reset();
   }
 }

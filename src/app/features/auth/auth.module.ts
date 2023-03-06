@@ -1,19 +1,19 @@
 import { ShareModule } from '../../share/share/share.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/material/material.module';
+import { AuthComponent } from './auth.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [AuthComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ShareModule,
-    RouterModule.forChild([{ path: 'login', component: LoginComponent }]),
+    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
     MaterialModule
   ],
 })
-export class LoginModule {}
+export class AuthModule {}
