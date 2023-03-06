@@ -12,14 +12,14 @@ export class User {
     name: string,
     username: string,
     role: string,
-    token: string,
+    __token: string,
     password?: string
   ) {
     this.id = id;
     this.name = name;
     this.username = username;
     this.role = role;
-    this._token = token;
+    this._token = __token;
     if (this._token) {
       this._tokenExpirationDate = this.getExpiryDate(this._token);
     }

@@ -1,9 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CategoriesComponent } from './categories.component';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
-    {path: 'categories', component: CategoriesComponent},
+    {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
 ]
 
 @NgModule({

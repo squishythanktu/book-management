@@ -39,7 +39,6 @@ export class AuthComponent {
 
     loginObs$.subscribe(
       (resData) => {
-        console.log(resData);
         this.isLoading = false;
         this.route.navigate(['/books']);
       },

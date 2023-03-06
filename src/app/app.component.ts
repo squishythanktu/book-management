@@ -8,19 +8,19 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
   title = 'book-management';
-  // isAuthenticated = false;
-  // private userSub: Subscription;
+  isAuthenticated = false;
+  private userSub: Subscription;
   
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.autoLogin();
-    // this.userSub = this.authService.user.subscribe(user => {
-    //   this.isAuthenticated = !user ? false : true;
-    // })
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !user ? false : true;
+    })
   }
 
-  // ngOnDestroy(): void {
-  //   this.userSub.unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
 }

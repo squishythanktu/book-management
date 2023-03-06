@@ -27,7 +27,7 @@ export class AuthService {
       })
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap((resData) => {          
           this.handleAuthentication(resData.token, resData.user);
         })
       );
@@ -39,7 +39,7 @@ export class AuthService {
       name: string;
       username: string;
       role: string;
-      token: string;
+      _token: string;
     } = JSON.parse(localStorage.getItem('userData'));
 
     if (!userData) {
@@ -50,9 +50,12 @@ export class AuthService {
         userData.name,
         userData.username,
         userData.role,
-        userData.token
+        userData._token
       );
+
       if (loadedUser.token) {
+        console.log("Có sẳn token");
+        
         this.user.next(loadedUser);
 
         // Đếm ngược thời gian còn lại (originDuration - now) và tự động đăng xuất khi đếm ngược đến 0
@@ -93,10 +96,9 @@ export class AuthService {
       token
     );
     this.user.next(curUser);
+    localStorage.setItem('userData', JSON.stringify(curUser));
 
     const expiresIn = (curUser.tokenExpirationDate.getTime() - new Date().getTime())/1000;    
     this.autoLogout(expiresIn) 
-    
-    localStorage.setItem('userData', JSON.stringify(curUser));
   }
 }
