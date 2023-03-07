@@ -1,4 +1,4 @@
-import { AppRoutingModule } from './../app-routing.module';
+import { AppRoutingModule } from '../app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
