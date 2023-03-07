@@ -1,4 +1,4 @@
-import { BooksRoutingModule } from './books-routing.module';
+import { BooksRoutingModule } from './books.routes';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';

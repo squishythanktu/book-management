@@ -1,9 +1,7 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header" style="width: 100%;">
-        <a routerLink="/" class="navbar-brand">Book Management</a>
-        <a style="cursor: pointer; float: right;">Logout</a>
-      </div>
-    </div>
-  </nav>
-  
+<mat-toolbar>
+  <a routerLink="{{isAuthenticated ? 'books' : 'auth'}}" class="header-title">Book Management</a>
+  <div class="header-actions">
+    <a routerLink="auth" *ngIf="!isAuthenticated" mat-flat-button color="primary" >Login</a>
+    <a routerLink="/" *ngIf="isAuthenticated" mat-flat-button color="primary" (click)="onLogout()">Log out</a>
+  </div>
+</mat-toolbar>

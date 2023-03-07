@@ -5,6 +5,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [],
@@ -14,6 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule
   ],
   imports: [
     CommonModule,
@@ -22,6 +32,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule
   ],
 })
 export class MaterialModule {}
