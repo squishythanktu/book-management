@@ -1,3 +1,8 @@
+@use "@angular/material" as mat;
+@import '../../material/variable';
+@import '../../material/typography'; 
+@import '../../material/mixin';
+
 .container {
   width: fit-content;
 }
@@ -8,6 +13,7 @@ mat-card-title {
   margin: 1.25rem 0;
   font-size: 24px;
 }
+
 
 .example-form {
   min-width: 9.375rem;
@@ -29,10 +35,14 @@ mat-card-title {
   justify-content: center;
   align-items: center;
   margin-top: 1.25rem;
+
+  // a {
+  //   color: $primary-color;
+  // }
 }
 
 .alert-danger {
-  background-color: #f44336; /* Red */
+  background-color: $error-color; /* Red */
 }
 
 .alert{
@@ -41,3 +51,11 @@ mat-card-title {
   margin-top: -10px;
   text-align: center;
 }
+
+.submit-btn {
+  // @include mat.typography-level($custom-typography, 'button');
+  // background: $primary-color;
+}
+ 
+// TODO: BORDER-BOTTOM COLOR OF INVALID INPUTS ARE NOT RED
+// TODO: BUTTON COLOR ARE PRIMARY 500 BUT THE CONTRAST COLOR IS NOT #FFF (IN _THEME.SCSS)

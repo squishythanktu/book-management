@@ -1,3 +1,8 @@
+@use "@angular/material" as mat;
+@import '../../material/variable';
+@import '../../material/typography'; 
+@import '../../material/mixin';
+
 mat-card-title {
   display: flex;
   justify-content: center;
@@ -15,6 +20,11 @@ mat-card-title {
   width: 100%;
 }
 
-.example-button-row button {
+mat-error {
+  color: $error-color;
+}
+
+.signup-btn {
   width: 100%;
+  // @include button-style;
 }

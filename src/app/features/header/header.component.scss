@@ -1,0 +1,29 @@
+@use "@angular/material" as mat;
+@import '../../material/variable';
+@import '../../material/typography';
+@import '../../material/mixin';
+
+mat-toolbar {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title,
+.header-title:visited,
+.header-title:hover,
+.header-title:active {
+  text-decoration: none;
+  color: $primary-color;
+  @include mat.typography-level($custom-typography, 'headline-1');
+}
+
+.header-actions {
+  cursor: pointer;
+  
+  // a {
+  //   @include button-style;
+  // }
+}
+

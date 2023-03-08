@@ -1,0 +1,12 @@
+@use "@angular/material" as mat;
+@import '../../material/variable';
+@import '../../material/typography'; 
+@import '../../material/mixin';
+
+mat-nav-list {
+    padding: 0;
+
+    .sidebar-link {
+        @include mat.typography-level($custom-typography, 'headline-1'); //not working but the <a> tag in header is working
+    }
+}

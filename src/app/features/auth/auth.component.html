@@ -9,13 +9,13 @@
       <mat-card-title>Login</mat-card-title>
       <mat-card-content>
         <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
-          <mat-label>Username</mat-label>
+          <mat-label class="label-input">Username</mat-label>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Ex. username1" formControlName="username" />
             <mat-error *ngIf="loginForm.get('username').hasError('required')">Username is <strong>required</strong></mat-error>
           </mat-form-field>
 
-          <mat-label>Password</mat-label>
+          <mat-label class="label-input">Password</mat-label>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Ex. password1" [type]="hide ? 'password' : 'text'" formControlName="password" />
             <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is <strong>required</strong></mat-error>
@@ -23,7 +23,7 @@
           </mat-form-field>
 
           <div class="example-button-row">
-            <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+            <button mat-flat-button color="primary" class="submit-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
           </div> 
           
           <p class="create-acc">Don't have an account?<a mat-button color="primary" routerLink="/signup">Create new account</a></p>
