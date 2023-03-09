@@ -1,26 +1,28 @@
+@use "@angular/material" as mat;
+@import "../../styles/material/theme";
+
 .container {
   width: fit-content;
 }
 
 mat-card-title {
-  display:  flex;
+  display: flex;
   justify-content: center;
   margin: 1.25rem 0;
   font-size: 24px;
 }
 
-.example-form {
+.auth-form {
   min-width: 9.375rem;
   max-width: 31.25rem;
   width: 100%;
 }
 
-
-.example-full-width {
+.input-field {
   width: 100%;
 }
 
-.example-button-row button {
+.button-row button {
   width: 100%;
 }
 
@@ -32,10 +34,10 @@ mat-card-title {
 }
 
 .alert-danger {
-  background-color: #f44336; /* Red */
+  background-color: red;
 }
 
-.alert{
+.alert {
   padding: 20px;
   color: white;
   margin-top: -10px;

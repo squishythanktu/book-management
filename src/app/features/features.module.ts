@@ -1,6 +1,5 @@
 import { AppRoutingModule } from '../app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
@@ -12,15 +11,14 @@ import { UsersModule } from './users/users.module';
 import { SignupModule } from './signup/signup.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    SideBarComponent,
-  ],
+  declarations: [HeaderComponent, SideBarComponent],
   imports: [
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AuthorsModule,
@@ -29,12 +27,11 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,
     SignupModule,
     UsersModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
   ],
-  exports: [
-    HeaderComponent,
-    SideBarComponent,
-
-  ],
+  exports: [HeaderComponent, SideBarComponent],
 })
 export class FeaturesModule {}

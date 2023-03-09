@@ -1,10 +1,10 @@
-import { AuthGuard } from '../../core/guards/auth.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BooksComponent } from './books.component';
+import { IsAuthGuard } from 'src/app/core/guards/isAuth.guard';
 
 const routes: Routes = [
-  { path: 'books', component: BooksComponent, canActivate: [AuthGuard] },
+  { path: 'books', component: BooksComponent, canActivate: [IsAuthGuard] },
 ];
 
 @NgModule({

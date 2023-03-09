@@ -1,0 +1,11 @@
+@import "../../styles/styles/variable";
+
+mat-nav-list {
+  padding: 0;
+}
+
+.sidebar-link {
+  span {
+    font-size: $font-size-m;
+  }
+}

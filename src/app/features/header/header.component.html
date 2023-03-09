@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <a routerLink="{{isAuthenticated ? 'books' : 'auth'}}" class="header-title">Book Management</a>
+  <a routerLink="{{isAuthenticated ? 'books' : 'auth'}}" class="header-title mat-headline-1">Book Management</a>
   <div class="header-actions">
     <a routerLink="auth" *ngIf="!isAuthenticated" mat-flat-button color="primary" >Login</a>
     <a routerLink="/" *ngIf="isAuthenticated" mat-flat-button color="primary" (click)="onLogout()">Log out</a>

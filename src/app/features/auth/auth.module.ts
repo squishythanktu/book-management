@@ -3,9 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from 'src/app/material/material.module';
 import { AuthComponent } from './auth.component';
-import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -13,8 +15,11 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
     CommonModule,
     ReactiveFormsModule,
     ShareModule,
-    RouterModule.forChild([{ path: 'auth', component: AuthComponent}]),
-    MaterialModule
+    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
   ],
 })
 export class AuthModule {}
