@@ -1,15 +1,11 @@
-@use "@angular/material" as mat;
-@import '../../material/variable';
-@import '../../material/typography'; 
-@import '../../material/mixin';
+@import "../../material/variable";
 
 mat-nav-list {
-    padding: 0;
-
+  padding: 0;
 }
 
 .sidebar-link {
-    span {
-        font-size: 16px;
-    }
+  span {
+    font-size: $font-size-m;
+  }
 }

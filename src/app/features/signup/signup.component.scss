@@ -1,7 +1,11 @@
 @use "@angular/material" as mat;
-@import '../../material/variable';
-@import '../../material/typography'; 
-@import '../../material/mixin';
+@import "../../material/variable";
+@import "../../material/typography";
+@import "../../material/mixin";
+
+.container {
+  width: fit-content;
+}
 
 mat-card-title {
   display: flex;
@@ -10,17 +14,16 @@ mat-card-title {
   font-size: 24px;
 }
 
-.example-form {
+.signup-form {
   min-width: 9.375rem;
   max-width: 31.25rem;
   width: 100%;
 }
 
-.example-full-width {
+.input-field {
   width: 100%;
 }
 
 .signup-btn {
   width: 100%;
-  // @include button-style;
 }

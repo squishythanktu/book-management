@@ -12,21 +12,17 @@ mat-card-title {
   font-size: 24px;
 }
 
-.example-form {
+.auth-form {
   min-width: 9.375rem;
   max-width: 31.25rem;
   width: 100%;
 }
 
-.example-full-width {
+.input-field {
   width: 100%;
-
-  // input { not-working
-  //   @include input-style;
-  // }
 }
 
-.example-button-row button {
+.button-row button {
   width: 100%;
 }
 
@@ -35,14 +31,10 @@ mat-card-title {
   justify-content: center;
   align-items: center;
   margin-top: 1.25rem;
-
-  // a {
-  //   color: $primary-color;
-  // }
 }
 
 .alert-danger {
-  background-color: $error-color; /* Red */
+  background-color: red;
 }
 
 .alert {
@@ -51,11 +43,3 @@ mat-card-title {
   margin-top: -10px;
   text-align: center;
 }
-
-.submit-btn {
-  // @include mat.typography-level($custom-typography, 'button');
-  // background: $primary-color;
-}
-
-// TODO: BORDER-BOTTOM COLOR OF INVALID INPUTS ARE NOT RED
-// TODO: BUTTON COLOR ARE PRIMARY 500 BUT THE CONTRAST COLOR IS NOT #FFF (IN _THEME.SCSS)

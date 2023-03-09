@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/material/material.module';
 import { AuthComponent } from './auth.component';
-import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 @NgModule({
   declarations: [AuthComponent],
@@ -13,8 +12,8 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
     CommonModule,
     ReactiveFormsModule,
     ShareModule,
-    RouterModule.forChild([{ path: 'auth', component: AuthComponent}]),
-    MaterialModule
+    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
+    MaterialModule,
   ],
 })
 export class AuthModule {}
