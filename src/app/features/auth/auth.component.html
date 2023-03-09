@@ -10,13 +10,13 @@
       <mat-card-content>
         <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
           <mat-label class="label-input">Username</mat-label>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width mat-subtitle-2">
             <input matInput placeholder="Ex. username1" formControlName="username" />
             <mat-error *ngIf="loginForm.get('username').hasError('required')">Username is <strong>required</strong></mat-error>
           </mat-form-field>
 
           <mat-label class="label-input">Password</mat-label>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width mat-subtitle-2">
             <input matInput placeholder="Ex. password1" [type]="hide ? 'password' : 'text'" formControlName="password" />
             <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is <strong>required</strong></mat-error>
             <mat-error *ngIf="loginForm.get('password').hasError('minlength')">Password must have at least <strong>6 characters</strong></mat-error>

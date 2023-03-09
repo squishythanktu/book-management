@@ -1,9 +1,7 @@
 @import './typography';
-@import './variable'; 
-@import '@angular/material/theming';
+@import './theme';
 
-@mixin button-style {
-    color: white;
-    background-color: $primary-color;
-    @include mat.typography-level($custom-typography, 'button');
+@mixin input-style {
+    font-size: 16px;
+    background: transparent;
 }

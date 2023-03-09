@@ -3,42 +3,43 @@
 @include mat.core();
 @import "./variable";
 
+
 $primary-palette: (
-  50: #bcdcfe,
-  100: #a6d0fd,
-  200: #8fc4fc,
-  300: #75b7fe,
-  400: #5eabfc,
-  500: #429cfc,
-  600: #247ede,
-  700: #1265bd,
-  800: #06509f,
-  900: #023d7d,
+  50: #E1F5FE,
+  100: #B3E5FC,
+  200: #81D4FA,
+  300: #4FC3F7,
+  400: #29B6F6,
+  500: #03A9F4,
+  600: #039BE5,
+  700: #0288D1,
+  800: #0277BD,
+  900: #01579B,
   contrast: (
     50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
     400: #000000,
-    500: #ffffff,
-    600: #ffffff,
-    700: #ffffff,
+    500: #000000,
+    600: #000000,
+    700: #000000,
     800: #ffffff,
     900: #ffffff,
   ),
 );
 
 $accent-palette: (
-  50: #e4f4ff,
-  100: #d2ecfe,
-  200: #a5dbfe,
-  300: #78c8fd,
-  400: #4bb7fd,
-  500: #1ea5fc,
-  600: #1884ca,
-  700: #126297,
-  800: #0c4265,
-  900: #062032,
+  50: #E3F2FD,
+  100: #BBDEFB,
+  200: #90CAF9,
+  300: #64B5F6,
+  400: #42A5F5,
+  500: #2196F3,
+  600: #1E88E5,
+  700: #1976D2,
+  800: #1565C0,
+  900: #0D47A1,
   contrast: (
     50: #000000,
     100: #000000,
@@ -46,32 +47,7 @@ $accent-palette: (
     300: #000000,
     400: #000000,
     500: #000000,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-  ),
-);
-
-$warn-palette: (
-  50: #fffde9,
-  100: #faf6ce,
-  200: #f7f1b0,
-  300: #faf29a,
-  400: #dfd55f,
-  500: #d0c229,
-  600: #c4b513,
-  700: #c1b214,
-  800: #ac9e0c,
-  900: #988c04,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #ffffff,
+    600: #000000,
     700: #ffffff,
     800: #ffffff,
     900: #ffffff,
@@ -103,45 +79,17 @@ $success-palette: (
   ),
 );
 
-$error-palette: (
-  50: #e9ffed,
-  100: #d5fde4,
-  200: #bdfed5,
-  300: #fcafaf,
-  400: #fc9292,
-  500: #fd7575,
-  600: #fd5757,
-  700: #f23b3b,
-  800: #da2121,
-  900: #c10b0b,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-  ),
-);
 
-$primary: mat.define-palette($primary-palette);
+$primary: mat.define-palette($primary-palette, 700);
 $accent: mat.define-palette($accent-palette);
-$warn: mat.define-palette($warn-palette);
 $success: mat.define-palette($success-palette);
-$error: mat.define-palette($error-palette);
 
 $my-theme: mat.define-light-theme(
   (
     color: (
       primary: $primary,
       accent: $accent,
-      warn: $warn,
       success: $success,
-      error: $error,
     ),
     typography: typography_config.$custom-typography,
   )

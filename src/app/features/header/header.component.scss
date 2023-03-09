@@ -1,7 +1,5 @@
 @use "@angular/material" as mat;
-@import '../../material/variable';
-@import '../../material/typography';
-@import '../../material/mixin';
+@import "../../material/theme";
 
 mat-toolbar {
   width: 100%;
@@ -14,16 +12,12 @@ mat-toolbar {
 .header-title:visited,
 .header-title:hover,
 .header-title:active {
+  margin: 0;
   text-decoration: none;
-  color: $primary-color;
-  @include mat.typography-level($custom-typography, 'headline-1');
+  color: mat.get-color-from-palette($primary, 700);
 }
 
 .header-actions {
   cursor: pointer;
-  
-  // a {
-  //   @include button-style;
-  // }
 }
 
