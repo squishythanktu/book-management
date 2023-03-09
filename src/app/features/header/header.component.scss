@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@import "../../material/theme";
+@import "../../styles/material/theme";
 
 mat-toolbar {
   width: 100%;
@@ -20,4 +20,3 @@ mat-toolbar {
 .header-actions {
   cursor: pointer;
 }
-

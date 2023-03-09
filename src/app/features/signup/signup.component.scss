@@ -1,7 +1,7 @@
 @use "@angular/material" as mat;
-@import "../../material/variable";
-@import "../../material/typography";
-@import "../../material/mixin";
+@import "../../styles/styles/variable";
+@import "../../styles/styles/typography";
+@import "../../styles/styles/mixin";
 
 .container {
   width: fit-content;
