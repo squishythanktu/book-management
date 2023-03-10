@@ -2,3 +2,11 @@
   font-size: 16px;
   background: transparent;
 }
+
+@mixin limit-line($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
