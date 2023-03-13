@@ -10,3 +10,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin link-style {
+  color: mat.get-color-from-palette($primary);
+  text-decoration: none;
+  cursor: pointer;
+
+  :hover {
+    color: mat.get-color-from-palette($primary, 500);
+  }
+}

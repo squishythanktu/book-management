@@ -1,6 +1,13 @@
-<mat-card class="book-card">
+<mat-card class="book-card" [routerLink]="[index]">
   <div class="book-cover">
     <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
+    <a class="book-edit-btn">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="edit"
+      ></mat-icon>
+    </a>
   </div>
   <div class="book-detail">
     <div class="book-header">

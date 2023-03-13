@@ -1,6 +1,9 @@
-<mat-tab-group>
-  <mat-tab label="Show all books"> <app-book-list></app-book-list> </mat-tab>
-  <mat-tab label="Add new book"> Content 3 </mat-tab>
-  <mat-tab label="Update book"> Content 3 </mat-tab>
-  <mat-tab label="Delete book"> Content 3 </mat-tab>
-</mat-tab-group>
+<div class="container">
+  <div class="add-btn">
+    <a routerLink="add" mat-flat-button color="primary">+ New Book</a>
+  </div>
+
+  <div class="books-container">
+    <app-book-list></app-book-list>
+  </div>
+</div>

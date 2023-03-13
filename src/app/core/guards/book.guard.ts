@@ -10,7 +10,7 @@ import { map, Observable, take } from 'rxjs';
 import { AuthService } from 'src/app/features/auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class IsAuthGuard implements CanActivate {
+export class BookGuard implements CanActivate {
   constructor(private authService: AuthService, private route: Router) {}
 
   canActivate(
@@ -26,9 +26,10 @@ export class IsAuthGuard implements CanActivate {
       map((user) => {
         const isAuth = !!user;
         if (isAuth) {
-          return true;
+          this.route.navigate(['/books']);
+          return false;
         } else {
-          return this.route.createUrlTree(['/auth']);
+          return true;
         }
       })
     );
