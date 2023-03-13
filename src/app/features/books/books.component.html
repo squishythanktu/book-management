@@ -1,9 +1,16 @@
 <div class="container">
   <div class="add-btn">
-    <a routerLink="add" mat-flat-button color="primary">+ New Book</a>
+    <a routerLink="add" mat-flat-button color="primary"
+      ><mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="add"
+      ></mat-icon>
+      New Book</a
+    >
   </div>
 
   <div class="books-container">
-    <app-book-list></app-book-list>
+    <router-outlet></router-outlet>
   </div>
 </div>

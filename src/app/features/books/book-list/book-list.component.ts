@@ -1,4 +1,4 @@
-import { BooksResponseData } from './../../../share/services/data-storage.service';
+import { BooksApiService, BooksResponseData } from './../books.api.service';
 import {
   Component,
   OnInit,
@@ -9,10 +9,8 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Book } from 'src/app/core/models/book.model';
-import { DataStorageService } from 'src/app/share/services/data-storage.service';
 import { BookService } from '../book.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-list',
@@ -24,24 +22,24 @@ export class BookListComponent implements OnInit, OnDestroy, AfterViewInit {
   pageSize: number = 3;
   pageIndex: number = 0;
   books: Book[];
-  bookSubs: Subscription;
+  booksSubs: Subscription;
   constructor(
     private bookService: BookService,
-    private dataStorageService: DataStorageService,
-    private router: Router,
-    private route: ActivatedRoute
+    private booksApiService: BooksApiService
   ) {}
 
   ngOnInit(): void {
-    this.bookSubs = this.dataStorageService
-      .fetchBooks()
-      .pipe(tap((response) => console.log(response)))
-      .subscribe();
+    let bookObs$: Observable<BooksResponseData>;
 
-    this.bookSubs = this.bookService.booksChanged.subscribe((books: Book[]) => {
-      this.books = books;
-    });
-    // this.books = this.bookService.getBooks();
+    bookObs$ = this.booksApiService.fetchBooks();
+
+    bookObs$.subscribe();
+
+    this.booksSubs = this.bookService.booksChanged.subscribe(
+      (books: Book[]) => {
+        this.books = books;
+      }
+    );
   }
 
   ngAfterViewInit() {
@@ -52,6 +50,6 @@ export class BookListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.bookSubs.unsubscribe();
+    this.booksSubs.unsubscribe();
   }
 }

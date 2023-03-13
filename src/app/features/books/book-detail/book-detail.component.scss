@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+@import "../../../styles/material/theme";
+
+.book-table {
+  border: 1px solid #b9b9b9;
+  margin: 35px 15px 0 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th {
+  font-weight: 500;
+  background-color: mat.get-color-from-palette($primary, 700);
+  color: mat.get-contrast-color-from-palette($primary, 700);
+}

@@ -11,12 +11,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { MatButtonModule } from '@angular/material/button';
+import { BookUpdateComponent } from './book-update/book-update.component';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     BooksComponent,
     BookListComponent,
     BookItemComponent,
     BookDetailComponent,
+    BookUpdateComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatTableModule,
   ],
 })
 export class BooksModule {}

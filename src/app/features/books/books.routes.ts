@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BooksComponent } from './books.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { BookUpdateComponent } from './book-update/book-update.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 const routes: Routes = [
   {
@@ -10,10 +12,15 @@ const routes: Routes = [
     component: BooksComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: '', component: BookListComponent },
+      { path: 'new', component: BookUpdateComponent },
       {
         path: ':id',
         component: BookDetailComponent,
-        canActivate: [AuthGuard],
+      },
+      {
+        path: ':id/update',
+        component: BookUpdateComponent,
       },
     ],
   },

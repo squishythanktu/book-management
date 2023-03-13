@@ -1,4 +1,4 @@
-<mat-card class="book-card" [routerLink]="[index]">
+<mat-card class="book-card">
   <div class="book-cover">
     <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
     <a class="book-edit-btn">
@@ -45,7 +45,7 @@
         <div class="book-author__name">{{ book.author.name }}</div>
       </div>
       <div class="book-link">
-        <a
+        <a [routerLink]="[index]"
           ><span>Read more</span>
           <mat-icon
             aria-hidden="false"

@@ -7,3 +7,19 @@ $font-size-xs: 12px;
 $font-size-s: 14px;
 $font-size-m: 16px;
 $font-size-l: 24px;
+
+//COLUMNS
+@for $i from 1 through 8 {
+  $width: percentage(
+    $number: 1 / $i,
+  );
+
+  .col-#{$i} {
+    width: $width;
+  }
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}

@@ -4,33 +4,33 @@ import { Book } from 'src/app/core/models/book.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
-  booksChanged = new Subject<Book[]>();
+  public booksChanged = new Subject<Book[]>();
   private books: Book[];
 
-  getBooks() {
+  public getBooks(): Book[] {
     return this.books.slice();
   }
 
-  getBook(id: number) {
+  public getBook(id: number): Book {
     return this.books[id];
   }
 
-  setBooks(books: Book[]) {
+  public setBooks(books: Book[]): void {
     this.books = books;
     this.booksChanged.next(this.books.slice());
   }
 
-  addBook(book: Book) {
+  public addBook(book: Book): void {
     this.books.push(book);
     this.booksChanged.next(this.books.slice());
   }
 
-  updateBook(id: number, newBook: Book) {
+  public updateBook(id: number, newBook: Book): void {
     this.books[id] = newBook;
     this.booksChanged.next(this.books.slice());
   }
 
-  deleteBook(id: number) {
+  public deleteBook(id: number): void {
     this.books.splice(id, 1);
     this.booksChanged.next(this.books.slice());
   }
