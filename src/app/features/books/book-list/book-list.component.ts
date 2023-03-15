@@ -15,7 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.scss'],
+  styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
