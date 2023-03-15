@@ -10,14 +10,14 @@ import { SignupService, SignupResponseData } from './signup.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  hide = true;
-  isLoading = false;
-  signupSuccess: string = null;
-  error: string = null;
+  public hide = true;
+  public isLoading = false;
+  public signupSuccess: string = null;
+  public error: string = null;
 
   constructor(private signupService: SignupService, private route: Router) {}
 
-  signupForm = new FormGroup({
+  public signupForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [
@@ -27,33 +27,33 @@ export class SignupComponent {
     confirmPassword: new FormControl('', [Validators.required]),
   });
 
-  onSignup(form: FormGroup) {
+  public onSignup(form: FormGroup): void {
     if (!form.valid) {
       return;
     }
     this.isLoading = true;
-    
+
     const nameValue = this.signupForm.get('name').value;
     const usernameValue = this.signupForm.get('username').value;
     const passwordValue = this.signupForm.get('password').value;
 
     let authObs: Observable<SignupResponseData | { message: string }>;
-    authObs = this.signupService.signup(nameValue, usernameValue, passwordValue);
-    console.log("authObs" + authObs);
-    
-    authObs.subscribe(
-      (resData) => {
-        if(resData.hasOwnProperty('message')) {
-          this.error = (resData as { message: string }).message;
-        }
-        else {
-          this.signupSuccess = "Sign up successfully!"
-          setTimeout(() => {
-            this.route.navigate(['/login']);
-          }, 3000)
-        }
+    authObs = this.signupService.signup(
+      nameValue,
+      usernameValue,
+      passwordValue
+    );
+
+    authObs.subscribe((resData) => {
+      if (resData.hasOwnProperty('message')) {
+        this.error = (resData as { message: string }).message;
+      } else {
+        this.signupSuccess = 'Sign up successfully!';
+        setTimeout(() => {
+          this.route.navigate(['/login']);
+        }, 3000);
       }
-    )
+    });
   }
 
   get password() {
@@ -64,7 +64,7 @@ export class SignupComponent {
     return this.signupForm.get('confirmPassword');
   }
 
-  onBlurConfirmPassword() {
+  public onBlurConfirmPassword(): void {
     if (this.password.value !== this.confirmPassword.value) {
       this.confirmPassword.setErrors({ passwordsMatch: true });
     } else {

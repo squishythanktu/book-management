@@ -1,1 +1,23 @@
-<p>book-list works!</p>
+<div class="container">
+  <div class="book-list">
+    <app-book-item
+      class="book-item"
+      *ngFor="
+        let BookEl of books
+          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize;
+        let i = index
+      "
+      [book]="BookEl"
+      [index]="i"
+    ></app-book-item>
+  </div>
+  <mat-paginator
+    class="paginator"
+    [length]="100"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[3, 6]"
+    aria-label="Select page"
+    (page)="pageIndex = $event.pageIndex"
+  >
+  </mat-paginator>
+</div>

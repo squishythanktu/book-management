@@ -1,0 +1,59 @@
+<mat-card class="book-card">
+  <div class="book-cover">
+    <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
+    <a class="book-edit-btn">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="edit"
+      ></mat-icon>
+    </a>
+  </div>
+  <div class="book-detail">
+    <div class="book-header">
+      <div class="book-categories">
+        <div
+          class="book-category"
+          *ngFor="
+            let category of book.categories | slice : 0 : 2;
+            let i = index
+          "
+        >
+          {{ category.name }}
+        </div>
+      </div>
+      <div class="book-year">{{ book.year }}</div>
+    </div>
+
+    <mat-card-content class="book-body">
+      <mat-card-title class="book-title">{{ book.name }}</mat-card-title>
+      <mat-card-subtitle class="book-description">{{
+        book.description
+      }}</mat-card-subtitle>
+    </mat-card-content>
+
+    <mat-card-footer class="book-footer">
+      <div class="book-author">
+        <div class="book-author__cover">
+          <img
+            mat-card-image
+            src="{{ book.author.cover }}"
+            alt="Photo of a book"
+          />
+        </div>
+
+        <div class="book-author__name">{{ book.author.name }}</div>
+      </div>
+      <div class="book-link">
+        <a [routerLink]="[index]"
+          ><span>Read more</span>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="arrow_forward"
+          ></mat-icon>
+        </a>
+      </div>
+    </mat-card-footer>
+  </div>
+</mat-card>

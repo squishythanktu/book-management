@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  hide = true;
-  isLoading = false;
-  error: string = null;
+  public hide = true;
+  public isLoading = false;
+  public error: string = null;
 
   constructor(private authService: AuthService, private route: Router) {}
 
-  loginForm = new FormGroup({
+  public loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [
       Validators.required,
@@ -24,7 +24,7 @@ export class AuthComponent {
     ]),
   });
 
-  onLogin(form: FormGroup) {
+  public onLogin(form: FormGroup): void {
     if (!form.valid) {
       return;
     }
@@ -48,7 +48,7 @@ export class AuthComponent {
 
         setTimeout(() => {
           this.error = null;
-        }, 3000)
+        }, 3000);
       }
     );
 
