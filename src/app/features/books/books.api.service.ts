@@ -24,4 +24,8 @@ export class BooksApiService {
       })
     );
   }
+
+  // public storeBooks(): Book {
+  //   const
+  // }
 }

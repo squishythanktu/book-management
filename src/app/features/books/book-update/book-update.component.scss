@@ -1,0 +1,52 @@
+mat-card {
+  width: 700px;
+  margin: 0 20%;
+
+  mat-card-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 1.25rem 0;
+    font-size: 24px;
+  }
+
+  .add-form {
+    width: 90%;
+    margin: 0 auto;
+
+    .form-content {
+      .input-field {
+        width: 100%;
+        margin: 0 5px;
+      }
+
+      .inputs-small {
+        width: 100%;
+        .input-field {
+          width: 31%;
+        }
+      }
+
+      .file-name {
+        margin-left: 1rem;
+      }
+
+      .button-row {
+        button {
+          width: 100%;
+        }
+      }
+
+      .alert-danger {
+        background-color: red;
+      }
+
+      .alert {
+        padding: 20px;
+        color: white;
+        margin-top: -10px;
+        text-align: center;
+      }
+    }
+  }
+}

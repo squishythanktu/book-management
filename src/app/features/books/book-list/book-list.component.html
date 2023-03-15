@@ -1,12 +1,12 @@
 <div class="container">
   <div class="book-list">
     <app-book-item
-      class="book-item"
       *ngFor="
         let BookEl of books
           | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize;
         let i = index
       "
+      class="book-item col-lg-3 col-md-4 col-sm-6"
       [book]="BookEl"
       [index]="i"
     ></app-book-item>

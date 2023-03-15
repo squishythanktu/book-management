@@ -1,7 +1,7 @@
 <mat-card class="book-card">
   <div class="book-cover">
     <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
-    <a class="book-edit-btn">
+    <a class="book-edit-btn" [routerLink]="[index, 'update']">
       <mat-icon
         aria-hidden="false"
         aria-label="Example home icon"

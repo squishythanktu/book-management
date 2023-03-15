@@ -1,3 +1,5 @@
+@import "../../../styles/styles/mixin";
+
 *::-webkit-scrollbar {
   width: 7px;
   color: transparent;
@@ -19,6 +21,8 @@
     height: 90%;
     overflow-y: auto;
     margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
 
     .book-item {
       display: inline-block;

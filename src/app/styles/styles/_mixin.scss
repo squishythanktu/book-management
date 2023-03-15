@@ -1,3 +1,4 @@
+@import "variable";
 @mixin input-style {
   font-size: 16px;
   background: transparent;
@@ -18,5 +19,24 @@
 
   :hover {
     color: mat.get-color-from-palette($primary, 500);
+  }
+}
+
+//media query mixins for each device
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
   }
 }

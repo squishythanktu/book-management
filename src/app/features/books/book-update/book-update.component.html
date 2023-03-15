@@ -1,1 +1,122 @@
-<p>book-update works!</p>
+<div class="row">
+  <mat-card>
+    <form
+      class="add-form"
+      [formGroup]="addForm"
+      (ngSubmit)="onAddBook(addForm)"
+    >
+      <mat-card-title>Add new book</mat-card-title>
+      <div class="form-content col-lg-12">
+        <!-- NAME -->
+        <mat-form-field class="input-field mat-subtitle-2">
+          <mat-label class="label-input">Name</mat-label>
+          <input matInput placeholder="Ex. Thanh Tu" formControlName="name" />
+          <mat-error *ngIf="addForm.get('name').hasError('required')"
+            >Name is <strong>required</strong></mat-error
+          >
+        </mat-form-field>
+        <!-- Description -->
+        <mat-form-field class="input-field mat-subtitle-2">
+          <mat-label class="label-input">Description</mat-label>
+          <textarea
+            matInput
+            name="questionText"
+            cols="35"
+            rows="3"
+            placeholder="Question Text"
+            required
+            formControlName="description"
+          ></textarea>
+          <mat-error *ngIf="addForm.get('description').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="inputs-small">
+          <!-- PRICE -->
+          <mat-form-field class="input-field mat-subtitle-2">
+            <mat-label class="label-input">Price</mat-label>
+            <input matInput placeholder="Ex.5.99" formControlName="price" />
+            <mat-error *ngIf="addForm.get('price').hasError('required')">
+              Price is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <!-- YEAR -->
+          <mat-form-field class="input-field mat-subtitle-2">
+            <mat-label class="label-input">Year</mat-label>
+            <input matInput placeholder="Ex. 1989" formControlName="year" />
+            <mat-error *ngIf="addForm.get('year').hasError('required')"
+              >Year is <strong>required</strong></mat-error
+            >
+          </mat-form-field>
+          <!-- Author -->
+          <mat-form-field appearance="fill" class="input-field mat-subtitle-2">
+            <mat-label class="label-input">Author</mat-label>
+            <mat-select formControlName="author">
+              <mat-option *ngFor="let author of authors" [value]="author.name">
+                {{ author.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addForm.get('author').hasError('required')"
+              >Author is <strong>required</strong></mat-error
+            >
+          </mat-form-field>
+        </div>
+        <!-- Publisher -->
+        <mat-form-field class="input-field mat-subtitle-2">
+          <mat-label class="label-input">Publisher</mat-label>
+          <input
+            matInput
+            placeholder="Ex. www.amazon.com"
+            formControlName="publisher"
+          />
+          <mat-error *ngIf="addForm.get('publisher').hasError('required')"
+            >Publisher is <strong>required</strong></mat-error
+          >
+        </mat-form-field>
+        <!-- COVER -->
+        <button
+          type="button"
+          mat-raised-button
+          (click)="addForm.get('image').click()"
+          color="primary"
+        >
+          Choose Image
+        </button>
+        <input
+          hidden
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          formControlName="image"
+          type="file"
+        />
+        <span class="file-name">{{ selectedImg?.name }}</span>
+      </div>
+      <!-- CATEGORY -->
+      <mat-form-field appearance="fill" class="input-field mat-subtitle-2">
+        <mat-label>Categories</mat-label>
+        <mat-select formControlName="categories" multiple>
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category.name"
+            >{{ category.name }}</mat-option
+          >
+        </mat-select>
+        <mat-error *ngIf="addForm.get('categories').hasError('required')"
+          >Categories is <strong>required</strong></mat-error
+        >
+      </mat-form-field>
+      <!-- BUTTON -->
+      <div class="button-row">
+        <button
+          mat-flat-button
+          color="primary"
+          class="submit-btn"
+          type="submit"
+          [disabled]="!addForm.valid"
+        >
+          Add new book
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

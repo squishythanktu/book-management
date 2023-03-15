@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: BookListComponent },
-      { path: 'new', component: BookUpdateComponent },
+      { path: 'add', component: BookUpdateComponent },
       {
         path: ':id',
         component: BookDetailComponent,
