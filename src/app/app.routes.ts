@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
   { path: 'auth', component: AuthComponent, canActivate: [BookGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [BookGuard] },
-  // {path: '**', redirectTo: '/books'} //how can i apply this path after all path (/categories, /users , etc)
 ];
 
 @NgModule({

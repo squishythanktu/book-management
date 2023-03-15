@@ -6,7 +6,7 @@ export class Author {
   public website: string;
   public birthday: Date;
   public cover: string;
-  public books?: Book[];
+  public books: Book[];
 
   constructor(
     id: number,
@@ -21,8 +21,8 @@ export class Author {
     this.website = website;
     this.birthday = birthday;
     this.cover = cover;
-    if (books.length > 0) {
-      this.books = books;
-    }
+    // if (books.length > 0) {
+    this.books = books;
+    // }
   }
 }

@@ -21,11 +21,21 @@ export class BooksApiService {
     return this.http.get<BooksResponseData>(`${this.apiUrl}/books`).pipe(
       tap((response) => {
         this.bookService.setBooks(response.data);
+        console.log(response.data);
       })
     );
   }
 
-  // public storeBooks(): Book {
-  //   const
-  // }
+  public addBook(book: Book): Observable<Book> {
+    console.log('in addBookApiService: ', book);
+
+    return this.http.post<Book>(`${this.apiUrl}/books`, book).pipe(
+      tap((response) => {
+        this.bookService.addBook(response);
+        console.log('new book: ', book);
+
+        console.log('books after added: ', this.bookService.getBooks());
+      })
+    );
+  }
 }

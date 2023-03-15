@@ -29,11 +29,16 @@ export class BookDetailComponent implements OnInit {
 
       this.dataSource = new MatTableDataSource([
         { property: 'Name', value: this.book.name },
+        { property: 'Description', value: this.book.description },
         { property: 'Author', value: this.book.author.name },
         { property: 'Publisher', value: this.book.publisher },
         { property: 'Year', value: this.book.year.toString() },
-        { property: 'Category', value: this.book.categories.map(c => c.name).join(', ') },
-        { property: 'Price', value: this.book.price.toString() }
+        {
+          property: 'Category',
+          value: this.book.categories.map((c) => c.name).join(', '),
+        },
+        { property: 'Publisher', value: this.book.publisher },
+        { property: 'Price', value: this.book.price.toString() },
       ]);
     });
   }
