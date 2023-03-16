@@ -1,3 +1,4 @@
+import { BookResolverService } from './book-update/book-resolver.service';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,9 @@ const routes: Routes = [
       {
         path: ':id',
         component: BookDetailComponent,
+        resolve: {
+          books: BookResolverService,
+        },
       },
       {
         path: ':id/update',

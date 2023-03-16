@@ -5,14 +5,16 @@ import { Book } from 'src/app/core/models/book.model';
 @Injectable({ providedIn: 'root' })
 export class BookService {
   public booksChanged = new Subject<Book[]>();
-  private books: Book[];
+  private books: Book[] = [];
 
   public getBooks(): Book[] {
     return this.books.slice();
   }
 
   public getBook(id: number): Book {
-    return this.books[id];
+    console.log('books: ', this.books);
+
+    return this.books.find((book) => book.id == id);
   }
 
   public setBooks(books: Book[]): void {

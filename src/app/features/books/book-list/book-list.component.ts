@@ -19,7 +19,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class BookListComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  public pageSize: number = 3;
+  public pageSize: number = 6;
   public pageIndex: number = 0;
   public books: Book[];
   public booksSubs: Subscription;
@@ -54,5 +54,4 @@ export class BookListComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     this.booksSubs.unsubscribe();
   }
-
 }

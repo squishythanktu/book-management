@@ -3,12 +3,11 @@
     <app-book-item
       *ngFor="
         let BookEl of books
-          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize;
-        let i = index
+          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
       "
       class="book-item col-lg-3 col-md-4 col-sm-6"
       [book]="BookEl"
-      [index]="i"
+      [index]="BookEl.id"
     ></app-book-item>
   </div>
   <mat-paginator

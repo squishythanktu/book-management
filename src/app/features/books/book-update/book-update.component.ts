@@ -32,8 +32,14 @@ export class BookUpdateComponent implements OnInit {
   public addForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required]),
-    year: new FormControl('', [Validators.required]),
+    price: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[0-9]+(\.[0-9]{1,2})?$/),
+    ]),
+    year: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\d+$/),
+    ]),
     publisher: new FormControl('', [Validators.required]),
     categories: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),

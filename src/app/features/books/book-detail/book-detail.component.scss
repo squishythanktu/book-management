@@ -3,21 +3,27 @@
 
 .row {
   margin-top: 40px;
+  height: 92%;
+  overflow-y: auto;
 
   .book-cover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 90%;
+    object-fit: contain;
+    max-height: 500px;
   }
 
   .book-table {
-    margin-top: 20px;
-    min-width: 80%;
-    border: 1px solid #b9b9b9;
+    width: 90%;
     margin: 0 auto;
-    border-radius: 5px;
-    overflow: hidden;
+
+    table {
+      border: 1px solid #b9b9b9;
+      border-radius: 5px;
+      overflow: hidden;
+    }
 
     th {
       font-weight: 500;

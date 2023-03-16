@@ -1,51 +1,62 @@
-mat-card {
-  width: 700px;
-  margin: 0 20%;
+.row {
+  height: 94%;
+  overflow-y: auto;
 
-  mat-card-title {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin: 1.25rem 0;
-    font-size: 24px;
-  }
+  mat-card {
+    width: 65%;
+    height: fit-content;
+    margin: 10px auto;
 
-  .add-form {
-    width: 90%;
-    margin: 0 auto;
+    mat-card-title {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin: 1.25rem 0;
+      font-size: 24px;
+    }
 
-    .form-content {
-      .input-field {
-        width: 100%;
-        margin: 0 5px;
-      }
+    .add-form {
+      width: 90%;
+      margin: 0 auto;
 
-      .inputs-small {
-        width: 100%;
+      .form-content {
         .input-field {
-          width: 31%;
-        }
-      }
-
-      .file-name {
-        margin-left: 1rem;
-      }
-
-      .button-row {
-        button {
           width: 100%;
         }
-      }
 
-      .alert-danger {
-        background-color: red;
-      }
+        .inputs-small {
+          display: flex;
+          justify-content: space-between;
 
-      .alert {
-        padding: 20px;
-        color: white;
-        margin-top: -10px;
-        text-align: center;
+          .input-field {
+            width: 100%;
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+        }
+
+        .file-name {
+          margin-left: 1rem;
+        }
+
+        .button-row {
+          margin: 15px 0;
+
+          button {
+            width: 100%;
+          }
+        }
+
+        .alert-danger {
+          background-color: red;
+        }
+
+        .alert {
+          padding: 20px;
+          color: white;
+          margin-top: -10px;
+          text-align: center;
+        }
       }
     }
   }
