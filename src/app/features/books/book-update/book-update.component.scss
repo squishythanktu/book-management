@@ -1,61 +1,74 @@
+@import "../../../styles/styles/_mixin.scss";
+
 .row {
-  height: 94%;
-  overflow-y: auto;
-
-  mat-card {
-    width: 65%;
-    height: fit-content;
+  .update-form {
     margin: 10px auto;
-
-    mat-card-title {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      margin: 1.25rem 0;
-      font-size: 24px;
+    @include desktop {
+      @include col-lg(8);
     }
 
-    .add-form {
-      width: 90%;
-      margin: 0 auto;
+    @include tablet {
+      @include col-md(4);
+    }
 
-      .form-content {
-        .input-field {
-          width: 100%;
-        }
+    @include mobile {
+      @include col-sm(4);
+    }
 
-        .inputs-small {
-          display: flex;
-          justify-content: space-between;
+    mat-card {
+      // width: 65%;
+      // height: fit-content;
 
+      mat-card-title {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 1.25rem 0;
+        font-size: 24px;
+      }
+
+      .add-form {
+        width: 90%;
+        margin: 0 auto;
+
+        .form-content {
           .input-field {
             width: 100%;
-            margin-left: 5px;
-            margin-right: 5px;
           }
-        }
 
-        .file-name {
-          margin-left: 1rem;
-        }
+          .inputs-small {
+            display: flex;
+            justify-content: space-between;
 
-        .button-row {
-          margin: 15px 0;
-
-          button {
-            width: 100%;
+            .input-field {
+              width: 100%;
+              margin-left: 5px;
+              margin-right: 5px;
+            }
           }
-        }
 
-        .alert-danger {
-          background-color: red;
-        }
+          .file-name {
+            margin-left: 1rem;
+          }
 
-        .alert {
-          padding: 20px;
-          color: white;
-          margin-top: -10px;
-          text-align: center;
+          .button-row {
+            margin: 15px 0;
+
+            button {
+              width: 100%;
+            }
+          }
+
+          .alert-danger {
+            background-color: red;
+          }
+
+          .alert {
+            padding: 20px;
+            color: white;
+            margin-top: -10px;
+            text-align: center;
+          }
         }
       }
     }

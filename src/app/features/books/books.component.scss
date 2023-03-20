@@ -1,14 +1,16 @@
-.container {
-  height: 90vh;
+.books-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .add-btn {
-    height: 5%;
     display: flex;
     justify-content: end;
     margin: 10px 15px;
   }
 
-  .books-container {
-    height: 92%;
+  app-books-list {
+    height: 100%;
   }
 }

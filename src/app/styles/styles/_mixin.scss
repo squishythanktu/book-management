@@ -22,6 +22,14 @@
   }
 }
 
+@mixin full-size {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 //media query mixins for each device
 @mixin mobile {
   @media (max-width: #{$mobile-width - 1px}) {
@@ -39,4 +47,24 @@
   @media (min-width: #{$desktop-width}) {
     @content;
   }
+}
+
+//columns
+
+@mixin col-lg($number) {
+  $width: percentage(1 / (12 / $number));
+  width: #{$width};
+  flex: 0 0 #{$width};
+}
+
+@mixin col-md($number) {
+  $width: percentage(1 / (6 / $number));
+  width: #{$width};
+  flex: 0 0 #{$width};
+}
+
+@mixin col-sm($number) {
+  $width: percentage(1 / (4 / $number));
+  width: #{$width};
+  flex: 0 0 #{$width};
 }

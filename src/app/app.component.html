@@ -1,19 +1,15 @@
-<div class="container">
-  <mat-grid-list cols="12" rows="11" rowHeight="4rem">
-    <mat-grid-tile colspan="12" rowspan="1">
-      <div class="header">
-        <app-header></app-header>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="10" *ngIf="isAuthenticated">
-      <div class="sidebar">
-        <app-side-bar></app-side-bar>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="{{ isAuthenticated ? 10 : 12 }}" rowspan="10">
-      <div class="content {{ !isAuthenticated ? 'form' : '' }}">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="container" (scroll)="onWindowScroll($event)">
+  <!-- <mat-grid-list cols="12" rows="12" rowHeight="4rem"> -->
+  <!-- <mat-grid-tile colspan="12" rowspan="1"> -->
+  <div class="header row">
+    <app-header></app-header>
+  </div>
+  <div class="body row">
+    <div class="sidebar" *ngIf="isAuthenticated">
+      <app-side-bar></app-side-bar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

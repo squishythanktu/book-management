@@ -25,6 +25,9 @@ const routes: Routes = [
       {
         path: ':id/update',
         component: BookUpdateComponent,
+        resolve: {
+          books: BookResolverService,
+        },
       },
     ],
   },

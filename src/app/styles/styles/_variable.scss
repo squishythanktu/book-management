@@ -22,27 +22,3 @@ $desktop-columns: 12;
 $mobile-width: 480px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
-
-//col classes for each device
-@for $i from 1 through $mobile-columns {
-  $width: percentage($i / $mobile-columns);
-  .col-md-#{$i} {
-    width: $width;
-  }
-}
-
-@for $i from 1 through $tablet-columns {
-  $width: percentage($i / $tablet-columns);
-  .col-sm-#{$i},
-  .col-md-#{$i} {
-    width: $width;
-  }
-}
-
-@for $i from 1 through $desktop-columns {
-  $width: percentage($i / $desktop-columns);
-  .col-lg-#{$i},
-  .col-md-#{$i} {
-    width: $width;
-  }
-}

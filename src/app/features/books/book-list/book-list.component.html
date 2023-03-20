@@ -1,11 +1,11 @@
-<div class="container">
+<div class="books-list-container">
   <div class="book-list">
     <app-book-item
       *ngFor="
         let BookEl of books
           | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
       "
-      class="book-item col-lg-3 col-md-4 col-sm-6"
+      class="book-item"
       [book]="BookEl"
       [index]="BookEl.id"
     ></app-book-item>

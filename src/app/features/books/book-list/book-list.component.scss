@@ -1,16 +1,6 @@
 @import "../../../styles/styles/mixin";
 
-*::-webkit-scrollbar {
-  width: 7px;
-  color: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #dbdbdb;
-  border-radius: 5px;
-}
-
-.container {
+.books-list-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -18,14 +8,26 @@
 
   .book-list {
     width: 100%;
-    height: 90%;
-    overflow-y: auto;
+    height: 100%;
+    // overflow-y: auto;
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
 
     .book-item {
       display: inline-block;
+
+      @include desktop {
+        @include col-lg(4);
+      }
+
+      @include tablet {
+        @include col-md(3);
+      }
+
+      @include mobile {
+        @include col-sm(4);
+      }
     }
   }
 
