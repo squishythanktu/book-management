@@ -34,7 +34,7 @@
           </mat-form-field>
           <div class="inputs-small">
             <!-- PRICE -->
-            <mat-form-field class="input-field mat-subtitle-2">
+            <mat-form-field class="input-field mr-3 mat-subtitle-2">
               <mat-label class="label-input">Price</mat-label>
               <input matInput placeholder="Ex.5.99" formControlName="price" />
               <mat-error *ngIf="myForm.get('price').hasError('required')">
@@ -45,7 +45,7 @@
               </mat-error>
             </mat-form-field>
             <!-- YEAR -->
-            <mat-form-field class="input-field mat-subtitle-2">
+            <mat-form-field class="input-field mr-3 mat-subtitle-2">
               <mat-label class="label-input">Year</mat-label>
               <input matInput placeholder="Ex. 1989" formControlName="year" />
               <mat-error *ngIf="myForm.get('year').hasError('required')"

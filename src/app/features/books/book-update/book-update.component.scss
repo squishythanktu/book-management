@@ -12,6 +12,10 @@
       @include col-md(4);
     }
 
+    @include small-tablet {
+      @include col-md(4);
+    }
+
     @include mobile {
       @include col-sm(4);
     }

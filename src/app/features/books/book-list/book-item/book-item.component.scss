@@ -7,12 +7,12 @@
 .book-card {
   height: 440px;
   max-width: 370px;
-  margin: 15px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   .book-cover {
-    height: 200px;
+    height: 45%;
     width: 100%;
     position: relative;
 
@@ -31,10 +31,11 @@
   }
 
   .book-content {
+    height: 55%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
 
     .book-header {
       display: flex;
@@ -53,6 +54,7 @@
     }
 
     .book-body {
+      flex: 1;
       .book-title {
         @include limit-line(1);
       }
