@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BooksApiService } from './../books.api.service';
 import { CategoriesApiService } from './../../categories/categories.api.service';
 import { AuthorsApiService } from './../../authors/authors.api.service';
@@ -20,14 +19,10 @@ import { AuthorsService } from '../../authors/authors.service';
 import { CategoriesService } from '../../categories/categories.service';
 import { Book } from 'src/app/core/models/book.model';
 import { ConvertBase64 } from 'src/app/share/helpers/convertBase64.helper';
-=======
-import { Component } from '@angular/core';
->>>>>>> main
 
 @Component({
   selector: 'app-book-update',
   templateUrl: './book-update.component.html',
-<<<<<<< HEAD
   styleUrls: ['./book-update.component.scss'],
 })
 export class BookUpdateComponent implements OnInit {
@@ -171,10 +166,4 @@ export class BookUpdateComponent implements OnInit {
   public onChooseImageClick(): void {
     this.fileInput.nativeElement.click();
   }
-=======
-  styleUrls: ['./book-update.component.scss']
-})
-export class BookUpdateComponent {
-
->>>>>>> main
 }
