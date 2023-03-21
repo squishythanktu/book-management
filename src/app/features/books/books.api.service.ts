@@ -28,7 +28,6 @@ export class BooksApiService {
   public addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(`${this.apiUrl}/books`, book).pipe(
       tap((response) => {
-        console.log('response', response);
         this.bookService.addBook(response);
       })
     );

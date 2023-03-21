@@ -12,8 +12,6 @@ export class BookService {
   }
 
   public getBook(id: number): Book {
-    console.log('books: ', this.books);
-
     return this.books.find((book) => book.id == id);
   }
 

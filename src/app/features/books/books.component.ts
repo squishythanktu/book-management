@@ -15,7 +15,6 @@ export class BooksComponent {
         const url = event.urlAfterRedirects;
         this.hideAddButton =
           url.indexOf('add') !== -1 || url.indexOf('update') !== -1;
-        console.log(this.hideAddButton);
       }
     });
   }

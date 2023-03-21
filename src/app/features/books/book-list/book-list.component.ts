@@ -15,10 +15,7 @@ export class BookListComponent implements AfterViewInit {
   public pageIndex: number = 0;
   public books$: Observable<BooksResponseData>;
 
-  constructor(
-    private bookService: BookService,
-    private booksApiService: BooksApiService
-  ) {
+  constructor(private booksApiService: BooksApiService) {
     this.books$ = this.booksApiService.fetchBooks();
   }
 

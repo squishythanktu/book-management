@@ -17,8 +17,6 @@ export class BookDetailComponent implements OnInit {
 
   constructor(private bookService: BookService, private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => {
-      console.log(params);
-
       this.id = +params['id'];
       console.log('id in onInit: ', this.id);
     });
@@ -30,8 +28,6 @@ export class BookDetailComponent implements OnInit {
 
   private loadBookDetails(): void {
     this.book = this.bookService.getBook(this.id);
-    console.log(this.book);
-
     this.dataSource = new MatTableDataSource([
       { property: 'Name', value: this.book.name },
       { property: 'Description', value: this.book.description },
