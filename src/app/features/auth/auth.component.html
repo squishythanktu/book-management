@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="alert alert-danger" *ngIf="error">
+  <div class="alert alert-danger p-5" *ngIf="error">
     {{ error }}
   </div>
   <div *ngIf="isLoading" style="text-align: center">
     <app-loading-spinner></app-loading-spinner>
   </div>
   <mat-card *ngIf="!isLoading">
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title class="mt-5 mb-5">Login</mat-card-title>
     <mat-card-content>
       <form
         class="auth-form"
@@ -54,7 +54,7 @@
           </button>
         </div>
 
-        <p class="create-acc">
+        <p class="create-acc mt-5">
           Don't have an account?<a
             mat-button
             color="primary"

@@ -1,0 +1,47 @@
+/*
+for MARGIN:
+  .m-2 { margin: .25rem; }  
+  .mt-5 { margin-top: 1rem; }  
+
+for PADDING:
+  .s-p-0 { padding: 0rem; }  
+  .s-pl-7 { padding-left: 2rem; }  
+
+*/
+
+$space-values: (
+  "0": "0",
+  "1": "0.125",
+  "2": "0.25",
+  "3": "0.5",
+  "4": "0.75",
+  "5": "1",
+  "6": "1.5",
+  "7": "2",
+  "8": "2.5",
+  "9": "3",
+  "10": "3.5",
+  "11": "4",
+);
+
+$sides: (
+  "": "all",
+  "t": "top",
+  "r": "right",
+  "b": "bottom",
+  "l": "left",
+);
+
+@each $space-key, $space-value in $space-values {
+  @each $side-key, $side-value in $sides {
+    $property: if($side-key == "", "", -#{$side-value});
+
+    .m#{$side-key}-#{$space-key} {
+      margin#{$property}: #{$space-value}rem;
+    }
+
+    .p#{$side-key}-#{$space-key} {
+      padding#{$property}: #{$space-value}rem;
+    }
+  }
+}

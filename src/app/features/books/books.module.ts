@@ -14,30 +14,30 @@ import { MatButtonModule } from '@angular/material/button';
 import { BookUpdateComponent } from './book-update/book-update.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import { ShareModule } from "../../share/share/share.module";
+import { MatSelectModule } from '@angular/material/select';
+import { ShareModule } from '../../share/share/share.module';
 
 @NgModule({
-    declarations: [
-        BooksComponent,
-        BookListComponent,
-        BookItemComponent,
-        BookDetailComponent,
-        BookUpdateComponent,
-    ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        BooksRoutingModule,
-        MatCardModule,
-        MatGridListModule,
-        MatIconModule,
-        MatPaginatorModule,
-        MatButtonModule,
-        MatTableModule,
-        MatInputModule,
-        MatSelectModule,
-        ShareModule
-    ]
+  declarations: [
+    BooksComponent,
+    BookListComponent,
+    BookItemComponent,
+    BookDetailComponent,
+    BookUpdateComponent,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    BooksRoutingModule,
+    MatCardModule,
+    MatGridListModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    ShareModule,
+  ],
 })
 export class BooksModule {}

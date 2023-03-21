@@ -2,13 +2,12 @@
 @import "../../styles/styles/variable";
 @import "../../styles/styles/typography";
 @import "../../styles/styles/mixin";
+@import "../../styles/styles/spacing";
 
 .container {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
 
   mat-card {
     width: fit-content;
@@ -16,13 +15,11 @@
     mat-card-title {
       display: flex;
       justify-content: center;
-      margin: 1.25rem 0;
       font-size: 24px;
     }
 
     .signup-form {
-      min-width: 9.375rem;
-      max-width: 31.25rem;
+      max-width: 30rem;
       width: 100%;
     }
 

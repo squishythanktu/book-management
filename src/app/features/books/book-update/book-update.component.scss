@@ -1,4 +1,5 @@
 @import "../../../styles/styles/_mixin.scss";
+@import "../../../styles/styles/spacing";
 
 .row {
   .update-form {
@@ -16,14 +17,10 @@
     }
 
     mat-card {
-      // width: 65%;
-      // height: fit-content;
-
       mat-card-title {
         display: flex;
         width: 100%;
         justify-content: center;
-        margin: 1.25rem 0;
         font-size: 24px;
       }
 
@@ -42,32 +39,13 @@
 
             .input-field {
               width: 100%;
-              margin-left: 5px;
-              margin-right: 5px;
             }
-          }
-
-          .file-name {
-            margin-left: 1rem;
           }
 
           .button-row {
-            margin: 15px 0;
-
             button {
               width: 100%;
             }
-          }
-
-          .alert-danger {
-            background-color: red;
-          }
-
-          .alert {
-            padding: 20px;
-            color: white;
-            margin-top: -10px;
-            text-align: center;
           }
         }
       }

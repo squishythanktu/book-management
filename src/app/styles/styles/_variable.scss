@@ -1,17 +1,13 @@
 // COLOR
 $text-color: #000;
 $primary-color: #1976d2;
+$border-table-color: #b9b9b9;
 
 //FONT SIZE
 $font-size-xs: 12px;
 $font-size-s: 14px;
 $font-size-m: 16px;
 $font-size-l: 24px;
-
-.row {
-  display: flex;
-  width: 100%;
-}
 
 //column widths for each device
 $mobile-columns: 4;

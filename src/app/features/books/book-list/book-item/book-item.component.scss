@@ -2,12 +2,11 @@
 @import "../../../../styles/styles/mixin";
 @import "../../../../styles/styles/variable";
 @import "../../../../styles/material/theme";
+@import "../../../../styles/styles/spacing";
 
 .book-card {
-  max-height: 425px;
+  height: 440px;
   max-width: 370px;
-  left: 0px;
-  top: 0px;
   margin: 15px;
   display: flex;
   flex-direction: column;
@@ -27,37 +26,29 @@
       position: absolute;
       top: 5px;
       right: 5px;
-      padding: 5px;
       @include link-style;
     }
   }
 
-  .book-detail {
-    height: 55%;
+  .book-content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: space-between;
 
     .book-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: $font-size-s;
-      padding: 16px;
 
       .book-categories {
         display: flex;
 
         .book-category {
-          margin-right: 10px;
-          padding: 5px;
           background: rgba($color: #1976d2, $alpha: 0.1);
           border-radius: 5px;
         }
-      }
-
-      .book-year {
       }
     }
 
@@ -65,9 +56,14 @@
       .book-title {
         @include limit-line(1);
       }
+
       .book-description {
-        @include limit-line(3);
+        @include limit-line(2);
         font-size: $font-size-s;
+
+        @include desktop {
+          @include limit-line(3);
+        }
       }
     }
 
@@ -75,7 +71,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px;
       font-size: $font-size-s;
 
       .book-author {
@@ -85,15 +80,12 @@
         .book-author__cover {
           width: 28px;
           height: 28px;
-          padding-right: 5px;
 
           img {
             width: 100%;
             height: 100%;
             object-fit: contain;
           }
-        }
-        .book-author__name {
         }
       }
 
@@ -107,7 +99,6 @@
             display: flex;
             align-items: center;
             font-size: $font-size-s;
-            padding-left: 2px;
           }
         }
       }

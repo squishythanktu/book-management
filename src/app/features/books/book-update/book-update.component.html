@@ -6,7 +6,7 @@
         [formGroup]="myForm"
         (ngSubmit)="onSubmitBook(myForm)"
       >
-        <mat-card-title>Add new book</mat-card-title>
+        <mat-card-title class="mt-5 mb-5">Add new book</mat-card-title>
         <div class="form-content col-lg-12">
           <!-- NAME -->
           <mat-form-field class="input-field mat-subtitle-2">
@@ -113,9 +113,9 @@
             #fileInput
             type="file"
           />
-          <span class="file-name">{{ selectedImg?.name }}</span>
+          <span class="file-name ml-5">{{ selectedImg?.name }}</span>
           <!-- BUTTON -->
-          <div class="button-row">
+          <div class="button-row mt-5 mb-5">
             <button
               mat-flat-button
               color="primary"

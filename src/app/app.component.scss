@@ -14,9 +14,9 @@
 
   .body {
     height: 100%;
+    margin-top: 4rem;
 
     .sidebar {
-      margin-top: 4rem;
       position: sticky;
 
       @include desktop {
@@ -33,7 +33,7 @@
 
     .content {
       height: 100%;
-      margin-top: 4rem;
+      margin: 0 auto;
 
       @include desktop {
         @include col-lg(10);
