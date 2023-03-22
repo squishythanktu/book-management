@@ -1,3 +1,5 @@
+@use "@angular/material" as mat;
+@use "sass:math" as math;
 @import "variable";
 
 @mixin input-style {
@@ -63,21 +65,21 @@
 }
 
 //columns
-
 @mixin col-lg($number) {
-  $width: percentage(1 / (12 / $number));
+  $width: percentage(math.div(1, math.div(12, $number)));
   width: #{$width};
   flex: 0 0 #{$width};
 }
 
 @mixin col-md($number) {
-  $width: percentage(1 / (6 / $number));
+  $width: percentage(math.div(1, math.div(6, $number)));
   width: #{$width};
   flex: 0 0 #{$width};
 }
 
 @mixin col-sm($number) {
-  $width: percentage(1 / (4 / $number));
+  $width: percentage(math.div(1, math.div(4, $number)));
   width: #{$width};
   flex: 0 0 #{$width};
 }
+

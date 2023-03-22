@@ -1,6 +1,10 @@
-<div class="container" (scroll)="onWindowScroll($event)">
+<div
+  class="container"
+  (scroll)="onWindowScroll($event)"
+  [style.display]="appShowModal ? 'none' : 'block'"
+>
   <div class="header row">
-    <app-header></app-header>
+    <app-header [(showModal)]="appShowModal"></app-header>
   </div>
   <div class="body row">
     <div class="sidebar" *ngIf="isAuthenticated">
@@ -9,5 +13,16 @@
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+  </div>
+</div>
+<div class="modal" [style.display]="appShowModal ? 'block' : 'none'">
+  <mat-icon
+    fontIcon="close"
+    color="primary"
+    class="mr-4 mt-4"
+    (click)="appShowModal = false"
+  ></mat-icon>
+  <div class="sidebar" *ngIf="isAuthenticated">
+    <app-side-bar (showModalChange)="appShowModal = false"></app-side-bar>
   </div>
 </div>

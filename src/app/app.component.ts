@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 export class AppComponent {
   title = 'book-management';
   public isAuthenticated: boolean = false;
+  public appShowModal: boolean = false;
   private userSub: Subscription;
 
   constructor(private authService: AuthService) {}
@@ -18,7 +19,7 @@ export class AppComponent {
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !user ? false : true;
     });
-  }                        
+  }
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe();

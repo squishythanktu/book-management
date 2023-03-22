@@ -1,15 +1,15 @@
 <div class="container">
     <mat-nav-list>
-        <a mat-list-item class="sidebar-link" routerLink="/books" routerLinkActive="list-item-active">
+        <a mat-list-item (click)="closeModal()" class="sidebar-link" routerLink="/books" routerLinkActive="list-item-active">
             <span>Books</span>
         </a>
-        <a mat-list-item class="sidebar-link" routerLink="/categories" routerLinkActive="list-item-active">
+        <a mat-list-item (click)="closeModal()" class="sidebar-link" routerLink="/categories" routerLinkActive="list-item-active">
             <span>Categories</span>
         </a>
-        <a mat-list-item class="sidebar-link" routerLink="/authors" routerLinkActive="list-item-active">
+        <a mat-list-item (click)="closeModal()" class="sidebar-link" routerLink="/authors" routerLinkActive="list-item-active">
             <span>Authors</span>
         </a>
-        <a mat-list-item class="sidebar-link" routerLink="/users" routerLinkActive="list-item-active">
+        <a mat-list-item (click)="closeModal()" class="sidebar-link" routerLink="/users" routerLinkActive="list-item-active">
             <span>Users</span>
         </a>
     </mat-nav-list> 

@@ -25,7 +25,7 @@ import { ConvertBase64 } from 'src/app/share/helpers/convertBase64.helper';
   templateUrl: './book-update.component.html',
   styleUrls: ['./book-update.component.scss'],
 })
-export class BookUpdateComponent implements OnInit {
+export class BookUpdateComponent {
   @Input() categories: Category[];
   @ViewChild('fileInput') fileInput: any;
   public updateMode: boolean = false;
@@ -36,8 +36,9 @@ export class BookUpdateComponent implements OnInit {
   public selectedImg: any = null;
   public selectedImgEncoded: string | null = null;
   public id: number;
-
   public myForm: FormGroup;
+  public author$: Observable<Author[]>;
+  public categories$: Observable<Category[]>;
 
   constructor(
     private bookService: BookService,
@@ -66,29 +67,9 @@ export class BookUpdateComponent implements OnInit {
       author: new FormControl('', [Validators.required]),
       cover: new FormControl('', [Validators.required]),
     });
-  }
 
-  ngOnInit(): void {
-    let authorObs$: Observable<Author[]>;
-    let categoriesObs$: Observable<Category[]>;
-
-    authorObs$ = this.authorsApiService.fetchAuthors();
-    categoriesObs$ = this.categoriesApiService.fetchCategories();
-
-    authorObs$.subscribe();
-    categoriesObs$.subscribe();
-
-    this.authorsSubs = this.authorService.authorsChanged.subscribe(
-      (authors: Author[]) => {
-        this.authors = authors;
-      }
-    );
-
-    this.categoriesSubs = this.categoriesService.categoriesChanged.subscribe(
-      (categories: Category[]) => {
-        this.categories = categories;
-      }
-    );
+    this.author$ = this.authorsApiService.fetchAuthors();
+    this.categories$ = this.categoriesApiService.fetchCategories();
 
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
@@ -106,11 +87,9 @@ export class BookUpdateComponent implements OnInit {
     const book = { ...form.value };
     //modified some field
     delete book.author.books;
-
     book.categories.forEach((category: Category) => {
       delete category.books;
     });
-
     book.price = parseFloat(book.price);
     book.year = parseFloat(book.year);
     return book;
@@ -147,7 +126,6 @@ export class BookUpdateComponent implements OnInit {
     } else {
       booksObs$ = this.booksApiService.addBook(book);
       booksObs$.subscribe();
-
       this.router.navigate(['/books']);
     }
   }
