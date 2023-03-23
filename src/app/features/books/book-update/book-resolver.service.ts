@@ -18,7 +18,6 @@ export class BookResolverService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log('in resolver');
     const books = this.bookService.getBooks();
     if (books.length === 0) {
       return this.bookApiService.fetchBooks();

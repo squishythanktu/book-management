@@ -18,7 +18,6 @@ export class AuthorsApiService {
     return this.http.get<Author[]>(`${this.apiUrl}/authors`).pipe(
       tap((authors) => {
         this.authorsService.setAuthors(authors);
-        console.log('fetch authors: ', authors);
       })
     );
   }

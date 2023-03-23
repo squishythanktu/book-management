@@ -6,7 +6,9 @@
         [formGroup]="myForm"
         (ngSubmit)="onSubmitBook(myForm)"
       >
-        <mat-card-title class="mt-5 mb-5">Add new book</mat-card-title>
+        <mat-card-title class="mt-5 mb-5">{{
+          updateMode ? "Update book" : "Add new book"
+        }}</mat-card-title>
         <div class="form-content col-lg-12">
           <!-- NAME -->
           <mat-form-field class="input-field mat-subtitle-2">
@@ -61,7 +63,10 @@
               class="input-field mat-subtitle-2"
             >
               <mat-label class="label-input">Author</mat-label>
-              <mat-select formControlName="author">
+              <mat-select
+                formControlName="author"
+                [compareWith]="compareAuthorObjects"
+              >
                 <mat-option
                   *ngFor="let author of author$ | async"
                   [value]="author"
@@ -89,7 +94,11 @@
           <!-- CATEGORY -->
           <mat-form-field appearance="fill" class="input-field mat-subtitle-2">
             <mat-label>Categories</mat-label>
-            <mat-select formControlName="categories" multiple>
+            <mat-select
+              formControlName="categories"
+              [compareWith]="compareCategoryObjects"
+              multiple
+            >
               <mat-option
                 *ngFor="let category of categories$ | async"
                 [value]="category"
@@ -117,7 +126,7 @@
             type="file"
           />
           <span class="file-name ml-5">{{ selectedImg?.name }}</span>
-          <!-- BUTTON -->
+          <!--SUBMIT BUTTON -->
           <div class="button-row mt-5 mb-5">
             <button
               mat-flat-button
@@ -126,7 +135,7 @@
               type="submit"
               [disabled]="!myForm.valid"
             >
-              Add new book
+              {{ updateMode ? "Update book" : "Add new book" }}
             </button>
           </div>
         </div>

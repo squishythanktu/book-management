@@ -18,7 +18,6 @@ export class CategoriesApiService {
     return this.http.get<Category[]>(`${this.apiUrl}/categories`).pipe(
       tap((categories) => {
         this.categoriesService.setCategories(categories);
-        console.log('fetch categories: ', categories);
       })
     );
   }

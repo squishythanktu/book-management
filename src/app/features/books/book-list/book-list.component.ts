@@ -1,3 +1,4 @@
+import { Book } from 'src/app/core/models/book.model';
 import { BooksApiService, BooksResponseData } from './../books.api.service';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -29,4 +30,8 @@ export class BookListComponent implements AfterViewInit {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
   }
+
+  // public renderUI(book: Book[]): void {
+  //   this.books$ = 
+  // }
 }

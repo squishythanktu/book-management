@@ -32,4 +32,12 @@ export class BooksApiService {
       })
     );
   }
+
+  public updateBook(id: number, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/books/${id}`, book).pipe(
+      tap((response) => {
+        this.bookService.updateBook(book.id, response);
+      })
+    );
+  }
 }
