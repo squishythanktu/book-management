@@ -1,3 +1,4 @@
+<!-- <app-confirm></app-confirm> -->
 <div class="row">
   <div class="update-form">
     <mat-card>
@@ -112,7 +113,7 @@
           <!-- COVER -->
           <button
             type="button"
-            mat-raised-button
+            mat-stroked-button
             (click)="onChooseImageClick()"
             color="primary"
           >
@@ -126,17 +127,30 @@
             type="file"
           />
           <span class="file-name ml-5">{{ selectedImg?.name }}</span>
-          <!--SUBMIT BUTTON -->
-          <div class="button-row mt-5 mb-5">
-            <button
-              mat-flat-button
-              color="primary"
-              class="submit-btn"
-              type="submit"
-              [disabled]="!myForm.valid"
-            >
-              {{ updateMode ? "Update book" : "Add new book" }}
-            </button>
+          <div class="actions-btn">
+            <!-- CANCEL BUTTON -->
+            <div class="cancel-btn mt-5 mb-5 mr-5" *ngIf="updateMode">
+              <button
+                mat-raised-button
+                class="cancel-btn"
+                type="button"
+                (click)="onCancelForm()"
+              >
+                Cancel
+              </button>
+            </div>
+            <!--SUBMIT BUTTON -->
+            <div class="submit-btn mt-5 mb-5">
+              <button
+                mat-raised-button
+                color="primary"
+                class="submit-btn"
+                type="submit"
+                [disabled]="!myForm.valid"
+              >
+                {{ updateMode ? "Update book" : "Add new book" }}
+              </button>
+            </div>
           </div>
         </div>
       </form>

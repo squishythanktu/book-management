@@ -15,7 +15,10 @@ import { BookUpdateComponent } from './book-update/book-update.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ShareModule } from '../../share/share/share.module';
+import { BookItemOptionsComponent } from './book-list/book-item/book-item-options/book-item-options.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { ShareModule } from '../../share/share/share.module';
     BookItemComponent,
     BookDetailComponent,
     BookUpdateComponent,
+    BookItemOptionsComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,8 @@ import { ShareModule } from '../../share/share/share.module';
     MatInputModule,
     MatSelectModule,
     ShareModule,
+    MatDialogModule,
+    MatMenuModule,
   ],
 })
 export class BooksModule {}

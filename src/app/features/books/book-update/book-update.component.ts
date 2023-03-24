@@ -120,22 +120,26 @@ export class BookUpdateComponent {
 
   public onSubmitBook(form: FormGroup): void {
     let book = this.formFilter(form);
-    let booksObs$: Observable<Book>;
+    let books$: Observable<Book>;
     if (this.myForm.valid) {
       if (this.updateMode) {
         console.log('in update process...', book);
-        booksObs$ = this.booksApiService.updateBook(this.id, book);
-        // this.bookService.updateBook(this.id, book);
+        books$ = this.booksApiService.updateBook(this.id, book);
       } else {
-        booksObs$ = this.booksApiService.addBook(book);
-        this.bookService.addBook(book);
+        books$ = this.booksApiService.addBook(book);
       }
-      booksObs$.subscribe();
+      books$.subscribe();
       this.router.navigate(['/books']);
-      // this.booksApiService.fetchBooks();
+      // .then(() => {
+      //   window.location.reload();
+      // });
     } else {
       console.log('error');
     }
+  }
+
+  public onCancelForm(): void {
+    this.router.navigate(['/books']);
   }
 
   public onFileSelected(event: any): void {

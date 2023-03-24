@@ -18,7 +18,6 @@ export class BookDetailComponent implements OnInit {
   constructor(private bookService: BookService, private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
-      console.log('id in onInit: ', this.id);
     });
   }
 

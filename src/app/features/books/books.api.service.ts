@@ -18,6 +18,7 @@ export class BooksApiService {
   constructor(private http: HttpClient, private bookService: BookService) {}
 
   public fetchBooks(): Observable<BooksResponseData> {
+    console.log('fetch books');
     return this.http.get<BooksResponseData>(`${this.apiUrl}/books`).pipe(
       tap((response) => {
         this.bookService.setBooks(response.data);
@@ -37,6 +38,14 @@ export class BooksApiService {
     return this.http.put<Book>(`${this.apiUrl}/books/${id}`, book).pipe(
       tap((response) => {
         this.bookService.updateBook(book.id, response);
+      })
+    );
+  }
+
+  public deleteBook(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/books/${id}`).pipe(
+      tap((response) => {
+        this.bookService.deleteBook(id);
       })
     );
   }

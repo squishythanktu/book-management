@@ -32,11 +32,12 @@
       object-fit: cover;
     }
 
-    .book-edit-btn {
+    .book-options {
       position: absolute;
       top: 5px;
       right: 5px;
       @include link-style;
+      z-index: 10;
     }
   }
 

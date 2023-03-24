@@ -1,9 +1,10 @@
 <mat-card class="book-card m-5">
   <div class="book-cover">
     <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
-    <a class="book-edit-btn p-3" [routerLink]="[index, 'update']">
-      <mat-icon fontIcon="edit"></mat-icon>
-    </a>
+    <app-book-item-options
+      [index]="index"
+      class="book-options"
+    ></app-book-item-options>
   </div>
   <div class="book-content">
     <div class="book-header p-5">

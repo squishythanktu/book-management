@@ -1,8 +1,4 @@
-<div
-  class="container"
-  (scroll)="onWindowScroll($event)"
-  [style.display]="appShowModal ? 'none' : 'block'"
->
+<div class="container" [style.display]="appShowModal ? 'none' : 'block'">
   <div class="header row">
     <app-header [(showModal)]="appShowModal"></app-header>
   </div>
