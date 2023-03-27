@@ -1,4 +1,5 @@
 @use "@angular/material" as mat;
+@use "../../styles/styles/typography" as typography;
 @import "../../styles/material/theme";
 @import "../../styles/styles/mixin";
 @import "../../styles/styles/spacing";
@@ -29,14 +30,7 @@ mat-toolbar {
     margin: 0;
     text-decoration: none;
     color: mat.get-color-from-palette($primary, 700);
-
-    @include small-tablet {
-      flex: 1;
-    }
-
-    @include mobile {
-      display: none;
-    }
+    flex: 1;
   }
 
   .header-actions {

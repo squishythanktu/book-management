@@ -3,10 +3,17 @@
     <app-header [(showModal)]="appShowModal"></app-header>
   </div>
   <div class="body row">
-    <div class="sidebar" *ngIf="isAuthenticated">
+    <div
+      class="sidebar"
+      *ngIf="isAuthenticated"
+      [ngStyle]="{ width: !isAuthenticated ? '0' : null }"
+    >
       <app-side-bar></app-side-bar>
     </div>
-    <div class="content">
+    <div
+      class="content"
+      [ngStyle]="{ width: !isAuthenticated ? '100%' : null }"
+    >
       <router-outlet></router-outlet>
     </div>
   </div>

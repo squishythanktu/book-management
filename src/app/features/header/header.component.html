@@ -6,6 +6,7 @@
     [(ngModel)]="showModal"
     ngDefaultControl
     (click)="onClick()"
+    *ngIf="isAuthenticated"
   ></mat-icon>
   <a
     routerLink="{{ isAuthenticated ? 'books' : 'auth' }}"
