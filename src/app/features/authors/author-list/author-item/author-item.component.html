@@ -1,1 +1,23 @@
-<p>author-item works!</p>
+<mat-card class="author-card m-5">
+  <div class="author-cover">
+    <img mat-card-image src="{{ author.cover }}" alt="Photo of a author" />
+    <app-author-item-options
+      [index]="index"
+      class="author-options"
+    ></app-author-item-options>
+  </div>
+  <div class="author-content">
+    <mat-card-content class="author-body">
+      <mat-card-title>
+        <div class="author-title centered">
+          {{ author.name }}
+        </div></mat-card-title
+      >
+      <mat-card-subtitle>
+        <div class="author-description centered">
+          {{ author.website }}
+        </div>
+      </mat-card-subtitle>
+    </mat-card-content>
+  </div>
+</mat-card>

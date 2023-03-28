@@ -1,0 +1,13 @@
+<div class="confirm-container">
+  <h1 mat-dialog-title class="confirm-title">
+    {{ data.title }}
+  </h1>
+  <div mat-dialog-content class="confirm-content mat-subtitle-2">
+    {{ data.message }}
+  </div>
+  <div mat-dialog-actions class="alert-actions" align="end">
+    <button mat-button color="primary" (click)="onConfirm()" class="alert-btn">
+      OK
+    </button>
+  </div>
+</div>

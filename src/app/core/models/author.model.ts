@@ -21,8 +21,6 @@ export class Author {
     this.website = website;
     this.birthday = birthday;
     this.cover = cover;
-    // if (books.length > 0) {
     this.books = books;
-    // }
   }
 }

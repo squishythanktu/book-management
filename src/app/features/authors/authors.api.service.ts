@@ -15,10 +15,19 @@ export class AuthorsApiService {
   ) {}
 
   public fetchAuthors(): Observable<Author[]> {
+    console.log('fetch authors');
     return this.http.get<Author[]>(`${this.apiUrl}/authors`).pipe(
       tap((authors) => {
         this.authorsService.setAuthors(authors);
       })
     );
+  }
+
+  public deleteAuthor(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${this.apiUrl}/authors/${id}`)
+      .pipe
+      // tap((response) => this.authorsService.deleteAuthor(id))
+      ();
   }
 }

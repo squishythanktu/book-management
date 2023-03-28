@@ -9,14 +9,28 @@ import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
 import { AuthorUpdateComponent } from './author-update/author-update.component';
 import { AuthorItemComponent } from './author-list/author-item/author-item.component';
+import { MatCardModule } from '@angular/material/card';
+import { AuthorItemOptionsComponent } from './author-list/author-item/author-item-options/author-item-options.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
-  declarations: [AuthorsComponent, AuthorListComponent, AuthorDetailComponent, AuthorUpdateComponent, AuthorItemComponent],
+  declarations: [
+    AuthorsComponent,
+    AuthorListComponent,
+    AuthorDetailComponent,
+    AuthorUpdateComponent,
+    AuthorItemComponent,
+    AuthorItemOptionsComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     AuthorsRoutingModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatMenuModule,
+    MatPaginatorModule,
   ],
 })
 export class AuthorsModule {}

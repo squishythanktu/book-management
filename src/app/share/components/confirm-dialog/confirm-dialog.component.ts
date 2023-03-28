@@ -15,11 +15,11 @@ export class ConfirmDialogComponent {
     private dialogRef: MatDialogRef<ConfirmDialogComponent>
   ) {}
 
-  onConfirm() {
+  public onConfirm(): void {
     this.dialogRef.close({ result: true });
   }
-  onCancel() {
-    this.confirm.emit(false);
+
+  public onCancel(): void {
     this.dialogRef.close({ result: false });
   }
 }
