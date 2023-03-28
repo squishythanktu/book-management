@@ -13,6 +13,12 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { MatButtonModule } from '@angular/material/button';
 import { BookUpdateComponent } from './book-update/book-update.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ShareModule } from '../../share/share/share.module';
+import { BookItemOptionsComponent } from './book-list/book-item/book-item-options/book-item-options.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
     BookItemComponent,
     BookDetailComponent,
     BookUpdateComponent,
+    BookItemOptionsComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +39,11 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginatorModule,
     MatButtonModule,
     MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    ShareModule,
+    MatDialogModule,
+    MatMenuModule,
   ],
 })
 export class BooksModule {}

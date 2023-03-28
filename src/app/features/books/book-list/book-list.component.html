@@ -1,23 +1,21 @@
-<div class="container">
-  <div class="book-list">
+<div class="books-list-container" *ngIf="books$ | async as books">
+  <div class="book-list mt-4">
     <app-book-item
-      class="book-item"
       *ngFor="
-        let BookEl of books
-          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize;
-        let i = index
+        let BookEl of books.data
+          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
       "
+      class="book-item"
       [book]="BookEl"
-      [index]="i"
+      [index]="BookEl.id"
     ></app-book-item>
   </div>
   <mat-paginator
     class="paginator"
-    [length]="100"
+    [length]="books.pagination?.totalItems"
     [pageSize]="pageSize"
     [pageSizeOptions]="[3, 6]"
-    aria-label="Select page"
-    (page)="pageIndex = $event.pageIndex"
+    (page)="onPageChanged($event)"
   >
   </mat-paginator>
 </div>

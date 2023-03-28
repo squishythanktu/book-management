@@ -14,7 +14,9 @@ import { AuthModule } from './auth/auth.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-
+import { ShareModule } from '../share/share/share.module';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [HeaderComponent, SideBarComponent],
   imports: [
@@ -31,6 +33,9 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatToolbarModule,
     MatListModule,
+    ShareModule,
+    MatIconModule,
+    FormsModule,
   ],
   exports: [HeaderComponent, SideBarComponent],
 })

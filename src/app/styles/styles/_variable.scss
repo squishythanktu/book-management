@@ -1,6 +1,7 @@
 // COLOR
 $text-color: #000;
 $primary-color: #1976d2;
+$border-table-color: #b9b9b9;
 
 //FONT SIZE
 $font-size-xs: 12px;
@@ -8,18 +9,12 @@ $font-size-s: 14px;
 $font-size-m: 16px;
 $font-size-l: 24px;
 
-//COLUMNS
-@for $i from 1 through 8 {
-  $width: percentage(
-    $number: 1 / $i,
-  );
+//column widths for each device
+$mobile-columns: 4;
+$tablet-columns: 6;
+$desktop-columns: 12;
 
-  .col-#{$i} {
-    width: $width;
-  }
-}
-
-.row {
-  display: flex;
-  width: 100%;
-}
+//breakpoint widths
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;

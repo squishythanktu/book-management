@@ -1,3 +1,4 @@
+import { BookResolverService } from './book-update/book-resolver.service';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -13,14 +14,20 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: BookListComponent },
-      { path: 'new', component: BookUpdateComponent },
+      { path: 'add', component: BookUpdateComponent },
       {
         path: ':id',
         component: BookDetailComponent,
+        resolve: {
+          books: BookResolverService,
+        },
       },
       {
         path: ':id/update',
         component: BookUpdateComponent,
+        resolve: {
+          books: BookResolverService,
+        },
       },
     ],
   },

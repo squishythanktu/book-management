@@ -1,5 +1,16 @@
-<mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+<div class="authors-container">
+  <div class="authors-actions">
+    <div class="back-btn mt-4 mb-4 ml-5" *ngIf="!hideBackButton">
+      <a routerLink="../authors">
+        <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+        <span>Back to authors page</span>
+      </a>
+    </div>
+    <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
+      <a routerLink="add" mat-flat-button color="primary"
+        ><mat-icon fontIcon="add"></mat-icon> New Author</a
+      >
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -4,14 +4,14 @@ export class Category {
   public id: number;
   public name: string;
   public description: string;
-  public books?: Book[];
+  public books: Book[];
 
   constructor(id: number, name: string, description: string, books: Book[]) {
     this.id = id;
     this.name = name;
     this.description = description;
-    if (books) {
-      this.books = books;
-    }
+    // if (books) {
+    this.books = books;
+    // }
   }
 }

@@ -2,112 +2,117 @@
 @import "../../../../styles/styles/mixin";
 @import "../../../../styles/styles/variable";
 @import "../../../../styles/material/theme";
+@import "../../../../styles/styles/spacing";
 
 .book-card {
-  height: 420px;
-  width: 370px;
-  left: 0px;
-  top: 0px;
-  margin: 15px;
+  height: 440px;
+  max-width: 370px;
   display: flex;
   flex-direction: column;
-}
+  overflow: hidden;
 
-.book-cover {
-  height: 45%;
-  width: 100%;
-  position: relative;
+  @include small-tablet {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-  img {
+  @include mobile {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .book-cover {
+    height: 45%;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-options {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      @include link-style;
+      z-index: 10;
+    }
   }
 
-  .book-edit-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px;
-    @include link-style;
-  }
-}
-
-.book-detail {
-  height: 55%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .book-header {
+  .book-content {
+    height: 55%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: $font-size-s;
-    padding: 16px;
+    flex-direction: column;
+    // justify-content: space-between;
 
-    .book-categories {
+    .book-header {
       display: flex;
-
-      .book-category {
-        margin-right: 10px;
-        padding: 5px;
-        background: rgba($color: #1976d2, $alpha: 0.1);
-        border-radius: 5px;
-      }
-    }
-
-    .book-year {
-    }
-  }
-
-  .book-body {
-    .book-title {
-      @include limit-line(1);
-    }
-    .book-description {
-      @include limit-line(3);
-      font-size: $font-size-s;
-    }
-  }
-
-  .book-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    font-size: $font-size-s;
-
-    .book-author {
-      display: flex;
+      justify-content: space-between;
       align-items: center;
+      font-size: $font-size-s;
 
-      .book-author__cover {
-        width: 28px;
-        height: 28px;
-        padding-right: 5px;
+      .book-categories {
+        display: flex;
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
+        .book-category {
+          background: rgba($color: #1976d2, $alpha: 0.1);
+          border-radius: 5px;
         }
       }
-      .book-author__name {
+    }
+
+    .book-body {
+      flex: 1;
+      .book-title {
+        @include limit-line(1);
+      }
+
+      .book-description {
+        @include limit-line(2);
+        font-size: $font-size-s;
+
+        @include desktop {
+          @include limit-line(3);
+        }
       }
     }
 
-    .book-link {
-      a {
+    .book-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $font-size-s;
+
+      .book-author {
         display: flex;
         align-items: center;
-        @include link-style;
 
-        mat-icon {
+        .book-author__cover {
+          width: 28px;
+          height: 28px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .book-link {
+        a {
           display: flex;
           align-items: center;
-          font-size: $font-size-s;
-          padding-left: 2px;
+          @include link-style;
+
+          mat-icon {
+            display: flex;
+            align-items: center;
+            font-size: $font-size-s;
+          }
         }
       }
     }
