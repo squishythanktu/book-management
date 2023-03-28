@@ -1,8 +1,16 @@
 <div class="books-container">
-  <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
-    <a routerLink="add" mat-flat-button color="primary"
-      ><mat-icon fontIcon="add"></mat-icon> New Book</a
-    >
+  <div class="books-actions">
+    <div class="back-btn mt-4 mb-4 ml-5" *ngIf="!hideBackButton">
+      <a routerLink="../books">
+        <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+        <span>Back to books page</span>
+      </a>
+    </div>
+    <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
+      <a routerLink="add" mat-flat-button color="primary"
+        ><mat-icon fontIcon="add"></mat-icon> New Book</a
+      >
+    </div>
   </div>
   <router-outlet></router-outlet>
 </div>

@@ -1,3 +1,5 @@
+@use "@angular/material" as mat;
+@import "../../styles/material/theme";
 @import "../../styles/styles/spacing";
 
 .books-container {
@@ -6,9 +8,29 @@
   display: flex;
   flex-direction: column;
 
-  .add-btn {
+  .books-actions {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    .back-btn {
+      display: inline-block;
+      justify-content: start;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: mat.get-color-from-palette($primary, 700);
+
+        &:hover {
+          color: mat.get-color-from-palette($primary, 500);
+        }
+      }
+    }
+    .add-btn {
+      display: flex;
+      justify-content: end;
+      flex: 1;
+    }
   }
 
   app-books-list {

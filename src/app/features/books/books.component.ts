@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class BooksComponent {
   public hideAddButton: boolean = true;
+  public hideBackButton: boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
@@ -15,6 +16,7 @@ export class BooksComponent {
         const url = event.urlAfterRedirects;
         this.hideAddButton =
           url.indexOf('add') !== -1 || url.indexOf('update') !== -1;
+        this.hideBackButton = url.endsWith('books') ? true : false;
       }
     });
   }
