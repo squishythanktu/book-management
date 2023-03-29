@@ -10,30 +10,43 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
 
-  mat-icon {
-    cursor: pointer;
-    display: none;
+  .header-left {
+    display: flex;
+    align-items: center;
+    mat-icon {
+      cursor: pointer;
+      display: none;
 
-    @include small-tablet {
-      display: block;
+      @include small-tablet {
+        display: block;
+      }
+
+      @include mobile {
+        display: block;
+      }
     }
 
-    @include mobile {
-      display: block;
+    .header-title,
+    .header-title:visited,
+    .header-title:hover,
+    .header-title:active {
+      margin: 0;
+      text-decoration: none;
+      color: mat.get-color-from-palette($primary, 700);
+      @include mat.typography-level(
+        typography.$custom-typography,
+        "headline-1"
+      );
+      @include mobile {
+        @include mat.typography-level(
+          typography.$custom-typography,
+          "headline-2"
+        );
+      }
     }
-  }
 
-  .header-title,
-  .header-title:visited,
-  .header-title:hover,
-  .header-title:active {
-    margin: 0;
-    text-decoration: none;
-    color: mat.get-color-from-palette($primary, 700);
-    flex: 1;
-  }
-
-  .header-actions {
-    cursor: pointer;
+    .header-actions {
+      cursor: pointer;
+    }
   }
 }

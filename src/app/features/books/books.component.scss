@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .back-btn {
       display: inline-block;
       justify-content: start;
@@ -26,6 +27,7 @@
         }
       }
     }
+
     .add-btn {
       display: flex;
       justify-content: end;

@@ -1,5 +1,15 @@
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  Subject,
+  switchMap,
+  Observable,
+} from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { Author } from 'src/app/core/models/author.model';
+import { AuthorsApiService } from './authors.api.service';
 
 @Component({
   selector: 'app-authors',
@@ -9,8 +19,13 @@ import { Component } from '@angular/core';
 export class AuthorsComponent {
   public hideBackButton: boolean = true;
   public hideAddButton: boolean = true;
+  public authorSearchControl = new FormControl('');
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authorsApiService: AuthorsApiService,
+    private route: ActivatedRoute
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
@@ -19,5 +34,15 @@ export class AuthorsComponent {
         this.hideBackButton = url.endsWith('books') ? true : false;
       }
     });
+
+    this.authorSearchControl.valueChanges
+      .pipe(
+        debounceTime(500), // wait for 500ms before emitting the latest value
+        distinctUntilChanged(), // only emit if the value has changed
+        switchMap(async (newValue) =>
+          this.authorsApiService.searchChanged(newValue)
+        )
+      )
+      .subscribe();
   }
 }

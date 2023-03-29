@@ -1,6 +1,9 @@
 @use "@angular/material" as mat;
+@import "../../styles/styles/typography";
 @import "../../styles/material/theme";
 @import "../../styles/styles/spacing";
+@import "../../styles/styles/mixin";
+@import "../../styles/styles/variable";
 
 .authors-container {
   width: 100%;
@@ -12,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .back-btn {
       display: inline-block;
       justify-content: start;
@@ -24,12 +28,65 @@
         &:hover {
           color: mat.get-color-from-palette($primary, 500);
         }
+
+        span {
+          @include small-tablet {
+            display: none;
+          }
+
+          @include mobile {
+            display: none;
+          }
+        }
       }
     }
-    .add-btn {
+
+    .author-actions__left {
       display: flex;
-      justify-content: end;
-      flex: 1;
+      align-items: center;
+      .search-form {
+        min-width: 150px;
+        max-width: 300px;
+        height: 70px;
+        margin-top: 12px;
+
+        ::ng-deep .mat-mdc-text-field-wrapper {
+          height: 36px !important;
+        }
+
+        ::ng-deep
+          .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+          .mat-mdc-form-field-infix {
+          min-height: 36px !important;
+          padding: 0 !important;
+        }
+
+        ::ng-deep .mdc-text-field__input {
+          height: 36px !important;
+        }
+
+        ::ng-deep
+          .mat-mdc-text-field-wrapper
+          .mat-mdc-form-field-flex
+          .mat-mdc-floating-label {
+          top: 20px !important;
+        }
+      }
+
+      .add-btn {
+        display: flex;
+        justify-content: end;
+
+        mat-icon {
+          flex: 1;
+        }
+
+        span {
+          @include mobile {
+            display: none;
+          }
+        }
+      }
     }
   }
 

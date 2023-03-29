@@ -13,6 +13,11 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthorItemOptionsComponent } from './author-list/author-item/author-item-options/author-item-options.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 @NgModule({
   declarations: [
     AuthorsComponent,
@@ -31,6 +36,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgxSkeletonLoaderModule,
   ],
 })
 export class AuthorsModule {}

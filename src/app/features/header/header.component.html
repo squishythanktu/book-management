@@ -1,18 +1,20 @@
 <mat-toolbar>
-  <mat-icon
-    fontIcon="menu"
-    color="primary"
-    class="mr-2"
-    [(ngModel)]="showModal"
-    ngDefaultControl
-    (click)="onClick()"
-    *ngIf="isAuthenticated"
-  ></mat-icon>
-  <a
-    routerLink="{{ isAuthenticated ? 'books' : 'auth' }}"
-    class="header-title mat-headline-1"
-    >Book Management</a
-  >
+  <div class="header-left">
+    <mat-icon
+      fontIcon="menu"
+      color="primary"
+      class="mr-2"
+      [(ngModel)]="showModal"
+      ngDefaultControl
+      (click)="onClick()"
+      *ngIf="isAuthenticated"
+    ></mat-icon>
+    <a
+      routerLink="{{ isAuthenticated ? 'books' : 'auth' }}"
+      class="header-title"
+      >Book Management</a
+    >
+  </div>
   <div class="header-actions">
     <a
       routerLink="auth"

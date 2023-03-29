@@ -1,13 +1,26 @@
-<div class="authors-list-container" *ngIf="authors$ | async as authors">
+<div class="authors-list-container" *ngIf="!isLoading">
   <div class="author-list">
     <app-author-item
-      *ngFor="let authorEl of authors"
+      *ngFor="let authorEl of authors$ | async"
       class="author-item"
       [author]="authorEl"
       [index]="authorEl.id"
     ></app-author-item>
   </div>
 </div>
+
+<div *ngIf="isLoading" class="skeleton-list">
+  <ngx-skeleton-loader
+    count="8"
+    [theme]="{
+      'border-radius': '5px',
+      height: '280px',
+      'max-width': '275px',
+      'margin-left': '20px'
+    }"
+  ></ngx-skeleton-loader>
+</div>
+
 <mat-paginator
   class="paginator"
   [length]="authorsCount"

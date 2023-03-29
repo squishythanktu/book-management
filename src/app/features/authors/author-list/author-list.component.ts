@@ -1,6 +1,6 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { Author } from 'src/app/core/models/author.model';
 import { AuthorsApiService } from '../authors.api.service';
 
@@ -15,12 +15,22 @@ export class AuthorListComponent implements AfterViewInit {
   public pageIndex: number = 0;
   public authorsCount: number = 0;
   public authors$: Observable<Author[]>;
+  public isLoading: boolean = false;
 
   constructor(private authorsApiService: AuthorsApiService) {
-    console.log('in authors page');
-    this.authors$ = this.authorsApiService.fetchAuthors();
-    this.authors$.subscribe((authors: Author[]) => {
-      this.authorsCount = authors.length;
+    this.authorsApiService.searchAuthorEmitter.subscribe((searchResult) => {
+      this.isLoading = true;
+      if (searchResult.trim() === '') {
+        this.authors$ = this.authorsApiService.fetchAuthors().pipe(delay(300));
+      } else {
+        this.authors$ = this.authorsApiService
+          .searchAuthor(searchResult)
+          .pipe(delay(300));
+      }
+      this.authors$.subscribe((authors: Author[]) => {
+        this.isLoading = false;
+        this.authorsCount = authors.length;
+      });
     });
   }
 

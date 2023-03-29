@@ -6,6 +6,7 @@ import { Author } from 'src/app/core/models/author.model';
 export class AuthorsService {
   public authorsChanged = new Subject<Author[]>();
   private authors: Author[];
+  
 
   public getAuthors(): Author[] {
     return this.authors.slice();

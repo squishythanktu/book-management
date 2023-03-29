@@ -6,10 +6,23 @@
         <span>Back to authors page</span>
       </a>
     </div>
-    <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
-      <a routerLink="add" mat-flat-button color="primary"
-        ><mat-icon fontIcon="add"></mat-icon> New Author</a
-      >
+    <div class="author-actions__left">
+      <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
+        <a routerLink="add" mat-flat-button color="primary"
+          ><mat-icon fontIcon="add"></mat-icon><span>New Author</span></a
+        >
+      </div>
+      <form class="search-form mr-5">
+        <mat-form-field
+          class="search-form-field mat-subtitle-2"
+          appearance="outline"
+        >
+          <mat-label class="search-label mat-subtitle-2">
+            <mat-icon fontIcon="search"></mat-icon> Search author</mat-label
+          >
+          <input type="text" matInput [formControl]="authorSearchControl" />
+        </mat-form-field>
+      </form>
     </div>
   </div>
   <router-outlet></router-outlet>
