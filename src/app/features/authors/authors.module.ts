@@ -16,7 +16,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ShareModule } from 'src/app/share/share/share.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxSkeletonLoaderModule,
+    ShareModule,
   ],
 })
 export class AuthorsModule {}
