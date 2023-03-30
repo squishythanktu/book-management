@@ -1,4 +1,4 @@
-<div class="authors-list-container">
+<div class="authors-list-container" *ngIf="!isLoading">
   <div class="author-list">
     <app-author-item
       *ngFor="let authorEl of authors$ | async"
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="skeleton-list-container">
+<div class="skeleton-list-container" *ngIf="isLoading">
   <div class="skeleton-list">
     <div class="skeleton-item" *ngFor="let i of [1, 2, 3, 4]">
       <div class="skeleton"></div>
