@@ -31,7 +31,7 @@ export class AuthorsComponent {
         const url = event.urlAfterRedirects;
         this.hideAddButton =
           url.indexOf('add') !== -1 || url.indexOf('update') !== -1;
-        this.hideBackButton = url.endsWith('books') ? true : false;
+        this.hideBackButton = url.endsWith('authors') ? true : false;
       }
     });
 

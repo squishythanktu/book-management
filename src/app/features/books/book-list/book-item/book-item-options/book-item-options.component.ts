@@ -1,7 +1,7 @@
 import { BooksApiService } from './../../../books.api.service';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { map, Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ConfirmDialogComponent } from 'src/app/share/components/confirm-dialog/confirm-dialog.component';
 import { Router } from '@angular/router';
 
@@ -35,7 +35,9 @@ export class BookItemOptionsComponent {
         books$ = this.booksApiService.deleteBook(this.index);
         books$.subscribe();
       }
-      this.router.navigate(['/books']);
+      this.router.navigate(['/books']).then(() => {
+        window.location.reload();
+      });
     });
   }
 }

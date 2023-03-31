@@ -5,6 +5,7 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorUpdateComponent } from './author-update/author-update.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
+import { AuthorResolverService } from './author-update/author-resolver.service';
 
 const routes: Routes = [
   {
@@ -14,8 +15,20 @@ const routes: Routes = [
     children: [
       { path: '', component: AuthorListComponent },
       { path: 'add', component: AuthorUpdateComponent },
-      { path: ':id', component: AuthorDetailComponent },
-      { path: ':id/update', component: AuthorUpdateComponent },
+      {
+        path: ':id',
+        component: AuthorDetailComponent,
+        resolve: {
+          authors: AuthorResolverService,
+        },
+      },
+      {
+        path: ':id/update',
+        component: AuthorUpdateComponent,
+        resolve: {
+          authors: AuthorResolverService,
+        },
+      },
     ],
   },
 ];

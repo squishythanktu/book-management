@@ -1,5 +1,6 @@
 @import "../../../styles/styles/mixin";
 @import "../../../styles/styles/skeleton";
+@import "../../../styles/styles/typography";
 
 .authors-list-container,
 .skeleton-list-container {
@@ -8,10 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
 
-  .author-list,
+  .authors-list,
   .skeleton-list {
     width: 100%;
-    min-height: 280px;
+    min-height: 680px;
     display: flex;
     flex-wrap: wrap;
 
@@ -60,5 +61,13 @@
     @include mobile {
       justify-content: space-around;
     }
+  }
+}
+
+.not-found-container {
+  @include flex-center;
+  .not-found__img {
+    width: 40%;
+    height: 40%;
   }
 }

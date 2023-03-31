@@ -8,5 +8,5 @@ import { Author } from 'src/app/core/models/author.model';
 })
 export class AuthorItemComponent {
   @Input() author: Author;
-  @Input() index: number;
+  @Input() id: number;
 }

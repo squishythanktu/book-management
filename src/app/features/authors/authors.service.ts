@@ -5,18 +5,20 @@ import { Author } from 'src/app/core/models/author.model';
 @Injectable({ providedIn: 'root' })
 export class AuthorsService {
   public authorsChanged = new Subject<Author[]>();
-  private authors: Author[];
-  
+  private authors: Author[] = [];
 
   public getAuthors(): Author[] {
     return this.authors.slice();
   }
 
   public getAuthor(id: number): Author {
-    return this.authors[id];
+    console.log('log authors: ', this.authors);
+
+    return this.authors.find((author) => author.id == id);
   }
 
   public setAuthors(authors: Author[]): void {
+    // console.log(authors);
     this.authors = authors;
     this.authorsChanged.next(this.authors.slice());
   }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Book } from 'src/app/core/models/book.model';
 import { BookItemOptionsComponent } from './book-item-options/book-item-options.component';
@@ -13,7 +13,7 @@ export class BookItemComponent {
   @Input() index: number;
 
   constructor(private dialog: MatDialog) {}
-  
+
   public openConfirmDialog(): void {
     this.dialog.open(BookItemOptionsComponent, {
       data: {

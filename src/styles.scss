@@ -16,7 +16,18 @@ body {
 }
 
 mat-form-field {
-  margin: 10px 0 15px;
+  margin: 10px auto;
+}
+
+.actions-btn {
+  display: flex;
+  margin: 1rem 0;
+
+  .submit-btn,
+  .cancel-btn {
+    flex: 1;
+    width: 100%;
+  }
 }
 
 .row {

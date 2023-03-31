@@ -17,6 +17,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ShareModule } from 'src/app/share/share/share.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { ShareModule } from 'src/app/share/share/share.module';
     MatFormFieldModule,
     MatInputModule,
     ShareModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class AuthorsModule {}

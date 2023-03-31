@@ -16,7 +16,7 @@ export class AuthorsApiService {
   ) {}
 
   public fetchAuthors(): Observable<Author[]> {
-    console.log('fetch authors');
+    // console.log('fetch authors');
     return this.http.get<Author[]>(`${this.apiUrl}/authors`).pipe(
       tap((authors) => {
         this.authorsService.setAuthors(authors);
@@ -24,12 +24,28 @@ export class AuthorsApiService {
     );
   }
 
+  public addAuthor(author: Author): Observable<Author> {
+    return this.http.post<Author>(`${this.apiUrl}/authors`, author).pipe(
+      tap((response) => {
+        this.authorsService.addAuthor(response);
+      })
+    );
+  }
+
+  public updateAuthor(id: number, author: Author): Observable<Author> {
+    return this.http.put<Author>(`${this.apiUrl}/authors/${id}`, author).pipe(
+      tap((response) => {
+        this.authorsService.updateAuthor(id, response);
+      })
+    );
+  }
+
   public deleteAuthor(id: number): Observable<void> {
-    return this.http
-      .delete<void>(`${this.apiUrl}/authors/${id}`)
-      .pipe
-      // tap((response) => this.authorsService.deleteAuthor(id))
-      ();
+    return this.http.delete<void>(`${this.apiUrl}/authors/${id}`).pipe(
+      tap((authors) => {
+        this.authorsService.deleteAuthor(id);
+      })
+    );
   }
 
   public searchAuthor(characters: string): Observable<Author[]> {

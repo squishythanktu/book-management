@@ -44,6 +44,9 @@
     .author-actions__left {
       display: flex;
       align-items: center;
+      justify-content: end;
+
+      flex: 1;
       .search-form {
         min-width: 150px;
         max-width: 300px;
