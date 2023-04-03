@@ -1,10 +1,47 @@
-import { Component } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { delay, Observable } from 'rxjs';
+import { Author } from 'src/app/core/models/author.model';
+import { AuthorsApiService } from '../authors.api.service';
 
 @Component({
   selector: 'app-author-list',
   templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.scss']
+  styleUrls: ['./author-list.component.scss'],
 })
-export class AuthorListComponent {
+export class AuthorListComponent implements AfterViewInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  public pageSize: number = 4;
+  public pageIndex: number = 0;
+  public authorsCount: number = 0;
+  public authors$: Observable<Author[]>;
+  public isLoading: boolean = false;
 
+  constructor(private authorsApiService: AuthorsApiService) {
+    this.authorsApiService.searchAuthorEmitter.subscribe((searchResult) => {
+      this.isLoading = true;
+      if (searchResult.trim() === '') {
+        this.authors$ = this.authorsApiService.fetchAuthors().pipe(delay(300));
+      } else {
+        this.authors$ = this.authorsApiService
+          .searchAuthor(searchResult)
+          .pipe(delay(300));
+      }
+      this.authors$.subscribe((authors: Author[]) => {
+        this.isLoading = false;
+        this.authorsCount = authors.length;
+      });
+    });
+  }
+
+  public onPageChanged(event: any): void {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+  }
+
+  ngAfterViewInit(): void {
+    this.paginator?.page.subscribe((event) => {
+      this.onPageChanged(event);
+    });
+  }
 }

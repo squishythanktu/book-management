@@ -1,8 +1,6 @@
-import { Book } from 'src/app/core/models/book.model';
 import { BooksApiService, BooksResponseData } from './../books.api.service';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BookService } from '../book.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 
@@ -11,20 +9,15 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit, AfterViewInit {
+export class BookListComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   public pageSize: number = 6;
   public pageIndex: number = 0;
   public books$: Observable<BooksResponseData>;
 
-  constructor(
-    private booksApiService: BooksApiService,
-    private route: ActivatedRoute
-  ) {
-    this.renderUI();
+  constructor(private booksApiService: BooksApiService) {
+    this.books$ = this.booksApiService.fetchBooks();
   }
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.paginator?.page.subscribe((event) => {
@@ -35,9 +28,5 @@ export class BookListComponent implements OnInit, AfterViewInit {
   public onPageChanged(event: any): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-  }
-
-  public renderUI(): void {
-    this.books$ = this.booksApiService.fetchBooks();
   }
 }

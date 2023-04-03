@@ -9,14 +9,37 @@ import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
 import { AuthorUpdateComponent } from './author-update/author-update.component';
 import { AuthorItemComponent } from './author-list/author-item/author-item.component';
+import { MatCardModule } from '@angular/material/card';
+import { AuthorItemOptionsComponent } from './author-list/author-item/author-item-options/author-item-options.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ShareModule } from 'src/app/share/share/share.module';
+
 @NgModule({
-  declarations: [AuthorsComponent, AuthorListComponent, AuthorDetailComponent, AuthorUpdateComponent, AuthorItemComponent],
+  declarations: [
+    AuthorsComponent,
+    AuthorListComponent,
+    AuthorDetailComponent,
+    AuthorUpdateComponent,
+    AuthorItemComponent,
+    AuthorItemOptionsComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     AuthorsRoutingModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ShareModule,
   ],
 })
 export class AuthorsModule {}

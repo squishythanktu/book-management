@@ -1,1 +1,27 @@
-<p>author-list works!</p>
+<div class="authors-list-container" *ngIf="!isLoading">
+  <div class="author-list">
+    <app-author-item
+      *ngFor="let authorEl of authors$ | async"
+      class="author-item"
+      [author]="authorEl"
+      [index]="authorEl.id"
+    ></app-author-item>
+  </div>
+</div>
+
+<div class="skeleton-list-container" *ngIf="isLoading">
+  <div class="skeleton-list">
+    <div class="skeleton-item" *ngFor="let i of [1, 2, 3, 4]">
+      <div class="skeleton"></div>
+    </div>
+  </div>
+</div>
+
+<mat-paginator
+  class="paginator"
+  [length]="authorsCount"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[4, 8]"
+  (page)="onPageChanged($event)"
+>
+</mat-paginator>
