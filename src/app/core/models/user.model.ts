@@ -45,7 +45,8 @@ export class User {
 
     // Decode the payload from base64
     const decodedPayload = decodeURIComponent(
-      window.atob(payload)
+      window
+        .atob(payload)
         .split('')
         .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
         .join('')
