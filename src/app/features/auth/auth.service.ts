@@ -72,13 +72,11 @@ export class AuthService {
       clearTimeout(this.tokenExpirationTimer);
     }
   }
-
   autoLogout(remainingExpirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, remainingExpirationDuration);
   }
-
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'Username or password is incorrect!';
     return throwError(errorMessage);
