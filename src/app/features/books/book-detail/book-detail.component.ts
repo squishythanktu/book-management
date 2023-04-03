@@ -9,7 +9,7 @@ import { BookService } from '../book.service';
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss'],
 })
-export class BookDetailComponent implements OnInit {
+export class BookDetailComponent {
   public book: Book;
   public id: number;
   public dataSource: MatTableDataSource<any>;
@@ -18,11 +18,8 @@ export class BookDetailComponent implements OnInit {
   constructor(private bookService: BookService, private route: ActivatedRoute) {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
+      this.loadBookDetails();
     });
-  }
-
-  ngOnInit() {
-    this.loadBookDetails();
   }
 
   private loadBookDetails(): void {

@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { Author } from 'src/app/core/models/author.model';
 
 @Injectable({ providedIn: 'root' })
-export class AuthorsService {
+export class AuthorService {
   public authorsChanged = new Subject<Author[]>();
   private authors: Author[] = [];
 
@@ -13,12 +13,10 @@ export class AuthorsService {
 
   public getAuthor(id: number): Author {
     console.log('log authors: ', this.authors);
-
     return this.authors.find((author) => author.id == id);
   }
 
   public setAuthors(authors: Author[]): void {
-    // console.log(authors);
     this.authors = authors;
     this.authorsChanged.next(this.authors.slice());
   }

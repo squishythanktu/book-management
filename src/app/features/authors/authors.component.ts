@@ -7,7 +7,7 @@ import {
 } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Author } from 'src/app/core/models/author.model';
 import { AuthorsApiService } from './authors.api.service';
 
@@ -16,7 +16,7 @@ import { AuthorsApiService } from './authors.api.service';
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss'],
 })
-export class AuthorsComponent {
+export class AuthorsComponent implements OnInit {
   public hideBackButton: boolean = true;
   public hideAddButton: boolean = true;
   public authorSearchControl = new FormControl('');
@@ -34,7 +34,13 @@ export class AuthorsComponent {
         this.hideBackButton = url.endsWith('authors') ? true : false;
       }
     });
+  }
 
+  ngOnInit(): void {
+    this.onSearchValueChange();
+  }
+
+  public onSearchValueChange(): void {
     this.authorSearchControl.valueChanges
       .pipe(
         debounceTime(500), // wait for 500ms before emitting the latest value

@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ShareModule } from 'src/app/share/share/share.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AuthorsComponent,
@@ -44,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ShareModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
   ],
 })
 export class AuthorsModule {}

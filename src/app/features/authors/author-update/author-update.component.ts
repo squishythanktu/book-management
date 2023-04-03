@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Author } from 'src/app/core/models/author.model';
 import { ConvertBase64 } from 'src/app/share/helpers/convertBase64.helper';
 import { AuthorsApiService } from '../authors.api.service';
-import { AuthorsService } from '../authors.service';
+import { AuthorService } from '../author.service';
 
 @Component({
   selector: 'app-author-update',
@@ -25,7 +25,7 @@ export class AuthorUpdateComponent {
     private convertBase64: ConvertBase64,
     private route: ActivatedRoute,
     private router: Router,
-    private authorsService: AuthorsService,
+    private authorService: AuthorService,
     private authorsApiService: AuthorsApiService
   ) {
     this.route.params.subscribe((params: Params) => {
@@ -49,7 +49,7 @@ export class AuthorUpdateComponent {
     let authorBirthday: Date = undefined;
 
     if (this.updateMode) {
-      const author = this.authorsService.getAuthor(this.id);
+      const author = this.authorService.getAuthor(this.id);
       console.log('author: ', author);
       authorName = author.name;
       authorWebsite = author.website;
