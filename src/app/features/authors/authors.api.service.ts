@@ -1,4 +1,4 @@
-import { AuthorsService } from './authors.service';
+import { AuthorService } from './author.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -10,16 +10,13 @@ export class AuthorsApiService {
   private apiUrl = environment.apiUrl;
   public searchAuthorEmitter: BehaviorSubject<string> = new BehaviorSubject('');
 
-  constructor(
-    private http: HttpClient,
-    private authorsService: AuthorsService
-  ) {}
+  constructor(private http: HttpClient, private authorService: AuthorService) {}
 
   public fetchAuthors(): Observable<Author[]> {
-    // console.log('fetch authors');
+    console.log('fetch authors');
     return this.http.get<Author[]>(`${this.apiUrl}/authors`).pipe(
       tap((authors) => {
-        this.authorsService.setAuthors(authors);
+        this.authorService.setAuthors(authors);
       })
     );
   }
@@ -27,7 +24,7 @@ export class AuthorsApiService {
   public addAuthor(author: Author): Observable<Author> {
     return this.http.post<Author>(`${this.apiUrl}/authors`, author).pipe(
       tap((response) => {
-        this.authorsService.addAuthor(response);
+        this.authorService.addAuthor(response);
       })
     );
   }
@@ -35,7 +32,7 @@ export class AuthorsApiService {
   public updateAuthor(id: number, author: Author): Observable<Author> {
     return this.http.put<Author>(`${this.apiUrl}/authors/${id}`, author).pipe(
       tap((response) => {
-        this.authorsService.updateAuthor(id, response);
+        this.authorService.updateAuthor(id, response);
       })
     );
   }
@@ -43,7 +40,7 @@ export class AuthorsApiService {
   public deleteAuthor(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/authors/${id}`).pipe(
       tap((authors) => {
-        this.authorsService.deleteAuthor(id);
+        this.authorService.deleteAuthor(id);
       })
     );
   }

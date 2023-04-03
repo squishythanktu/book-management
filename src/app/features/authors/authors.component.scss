@@ -16,42 +16,19 @@
     justify-content: space-between;
     align-items: center;
 
-    .back-btn {
-      display: inline-block;
-      justify-content: start;
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: mat.get-color-from-palette($primary, 700);
-
-        &:hover {
-          color: mat.get-color-from-palette($primary, 500);
-        }
-
-        span {
-          @include small-tablet {
-            display: none;
-          }
-
-          @include mobile {
-            display: none;
-          }
-        }
-      }
-    }
-
-    .author-actions__left {
+    .author-actions__right {
       display: flex;
       align-items: center;
-      justify-content: end;
 
-      flex: 1;
       .search-form {
         min-width: 150px;
         max-width: 300px;
         height: 70px;
-        margin-top: 12px;
+
+        .search-label {
+          display: flex;
+          align-items: center;
+        }
 
         ::ng-deep .mat-mdc-text-field-wrapper {
           height: 36px !important;
@@ -72,10 +49,42 @@
           .mat-mdc-text-field-wrapper
           .mat-mdc-form-field-flex
           .mat-mdc-floating-label {
-          top: 20px !important;
+          top: 18px !important;
         }
       }
+      .back-btn {
+        display: inline-block;
+        justify-content: start;
 
+        a {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: mat.get-color-from-palette($primary, 700);
+
+          &:hover {
+            color: mat.get-color-from-palette($primary, 500);
+          }
+
+          span {
+            @include small-tablet {
+              display: none;
+            }
+
+            @include mobile {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .author-actions__left {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      flex: 1;
       .add-btn {
         display: flex;
         justify-content: end;
