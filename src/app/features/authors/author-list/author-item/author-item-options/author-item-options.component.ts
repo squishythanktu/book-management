@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./author-item-options.component.scss'],
 })
 export class AuthorItemOptionsComponent {
-  @Input() index: number;
+  @Input() id: number;
 
   constructor(
     private dialog: MatDialog,
@@ -33,7 +33,7 @@ export class AuthorItemOptionsComponent {
     dialogRef.afterClosed().subscribe((dialogResult) => {
       if (dialogResult.result && dialogResult.result === true) {
         let authors$: Observable<void>;
-        authors$ = this.authorsApiService.deleteAuthor(this.index);
+        authors$ = this.authorsApiService.deleteAuthor(this.id);
         authors$.subscribe(
           (response: void) => {},
           (error) => {
@@ -50,7 +50,9 @@ export class AuthorItemOptionsComponent {
           }
         );
       }
-      this.router.navigate(['/authors']);
+      this.router.navigate(['/authors']).then(() => {
+        window.location.reload();
+      });
     });
   }
 }

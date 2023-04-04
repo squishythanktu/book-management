@@ -11,15 +11,17 @@ import { AuthorsApiService } from '../authors.api.service';
 })
 export class AuthorListComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  public pageSize: number = 4;
+  public pageSize: number = 8;
   public pageIndex: number = 0;
   public authorsCount: number = 0;
   public authors$: Observable<Author[]>;
   public isLoading: boolean = false;
+  public notFound: boolean = false;
 
   constructor(private authorsApiService: AuthorsApiService) {
     this.authorsApiService.searchAuthorEmitter.subscribe((searchResult) => {
       this.isLoading = true;
+      this.notFound = false;
       if (searchResult.trim() === '') {
         this.authors$ = this.authorsApiService.fetchAuthors().pipe(delay(300));
       } else {
@@ -28,6 +30,9 @@ export class AuthorListComponent implements AfterViewInit {
           .pipe(delay(300));
       }
       this.authors$.subscribe((authors: Author[]) => {
+        if (authors.length == 0) {
+          this.notFound = true;
+        }
         this.isLoading = false;
         this.authorsCount = authors.length;
       });

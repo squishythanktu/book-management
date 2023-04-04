@@ -2,14 +2,14 @@
   <div class="author-cover">
     <img mat-card-image src="{{ author.cover }}" alt="Photo of a author" />
     <app-author-item-options
-      [index]="index"
+      [id]="id"
       class="author-options"
     ></app-author-item-options>
   </div>
   <div class="author-content">
     <mat-card-content class="author-body">
       <mat-card-title>
-        <div class="author-title centered">
+        <div class="author-title centered" [routerLink]="[id]">
           {{ author.name }}
         </div></mat-card-title
       >

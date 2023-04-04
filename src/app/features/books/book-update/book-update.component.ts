@@ -48,7 +48,7 @@ export class BookUpdateComponent {
     });
   }
 
-  public formFilter = (form: FormGroup) => {
+  public formFilter(form: FormGroup): Book {
     //create book from form value
     const book = { ...form.value };
     //modified some field
@@ -59,7 +59,7 @@ export class BookUpdateComponent {
     book.price = parseFloat(book.price);
     book.year = parseFloat(book.year);
     return book;
-  };
+  }
 
   public compareAuthorObjects(author1: Author, author2: Author): boolean {
     return author1 && author2 && author1.id === author2.id;
@@ -120,21 +120,15 @@ export class BookUpdateComponent {
 
   public onSubmitBook(form: FormGroup): void {
     let book = this.formFilter(form);
-    let books$: Observable<Book>;
+    let book$: Observable<Book>;
     if (this.myForm.valid) {
       if (this.updateMode) {
-        console.log('in update process...', book);
-        books$ = this.booksApiService.updateBook(this.id, book);
+        book$ = this.booksApiService.updateBook(this.id, book);
       } else {
-        books$ = this.booksApiService.addBook(book);
+        book$ = this.booksApiService.addBook(book);
       }
-      books$.subscribe();
+      book$.subscribe();
       this.router.navigate(['/books']);
-      // .then(() => {
-      //   window.location.reload();
-      // });
-    } else {
-      console.log('error');
     }
   }
 

@@ -1,16 +1,15 @@
-<!-- <app-confirm></app-confirm> -->
 <div class="row">
-  <div class="update-form">
+  <div class="form-container">
     <mat-card>
       <form
-        class="add-form"
+        class="my-form"
         [formGroup]="myForm"
         (ngSubmit)="onSubmitBook(myForm)"
       >
-        <mat-card-title class="mt-5 mb-5">{{
+        <mat-card-title class="mt-5 mb-5 mat-headline-1 centered">{{
           updateMode ? "Update book" : "Add new book"
         }}</mat-card-title>
-        <div class="form-content col-lg-12">
+        <div class="form-content">
           <!-- NAME -->
           <mat-form-field class="input-field mat-subtitle-2">
             <mat-label class="label-input">Name</mat-label>
@@ -129,7 +128,7 @@
           <span class="file-name ml-5">{{ selectedImg?.name }}</span>
           <div class="actions-btn">
             <!-- CANCEL BUTTON -->
-            <div class="cancel-btn mt-5 mb-5 mr-5" *ngIf="updateMode">
+            <div class="cancel-btn mr-5" *ngIf="updateMode">
               <button
                 mat-raised-button
                 class="cancel-btn"
@@ -140,7 +139,7 @@
               </button>
             </div>
             <!--SUBMIT BUTTON -->
-            <div class="submit-btn mt-5 mb-5">
+            <div class="submit-btn">
               <button
                 mat-raised-button
                 color="primary"
