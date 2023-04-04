@@ -22,7 +22,6 @@ export class BooksApiService {
     return this.http.get<BooksResponseData>(`${this.apiUrl}/books`).pipe(
       tap((response) => {
         this.bookService.setBooks(response.data);
-        console.log(response.data);
       })
     );
   }
@@ -30,6 +29,7 @@ export class BooksApiService {
   public addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(`${this.apiUrl}/books`, book).pipe(
       tap((response) => {
+        console.log('response', response);
         this.bookService.addBook(response);
       })
     );
