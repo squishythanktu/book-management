@@ -13,6 +13,7 @@ export class BookItemComponent {
   @Input() index: number;
 
   constructor(private dialog: MatDialog) {}
+
   public openConfirmDialog(): void {
     this.dialog.open(BookItemOptionsComponent, {
       data: {
