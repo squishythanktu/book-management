@@ -22,6 +22,7 @@ export class BooksApiService {
     return this.http.get<BooksResponseData>(`${this.apiUrl}/books`).pipe(
       tap((response) => {
         this.bookService.setBooks(response.data);
+        console.log(response.data);
       })
     );
   }
