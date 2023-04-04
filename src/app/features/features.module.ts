@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { ShareModule } from '../share/share/share.module';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [HeaderComponent, SideBarComponent],
   imports: [
