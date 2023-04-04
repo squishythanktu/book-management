@@ -93,6 +93,7 @@ export class AuthService {
       token
     );
     this.user.next(curUser);
+
     localStorage.setItem('userData', JSON.stringify(curUser));
 
     localStorage.setItem('userData', JSON.stringify(curUser));
