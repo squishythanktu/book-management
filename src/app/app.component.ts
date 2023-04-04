@@ -24,14 +24,4 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
   }
-
-  @HostListener('window:scroll', ['$event'])
-  public onWindowScroll(e: Event): void {
-    let header = document.querySelector('.header');
-    if (window.scrollY > 64) {
-      header.classList.add('sticky');
-    } else {
-      // header.classList.remove('sticky');
-    }
-  }
 }

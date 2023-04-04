@@ -16,8 +16,11 @@ export class BookListComponent implements AfterViewInit {
   public pageIndex: number = 0;
   public books$: Observable<BooksResponseData>;
 
-  constructor(private booksApiService: BooksApiService) {
-    this.books$ = this.booksApiService.fetchBooks();
+  constructor(
+    private booksApiService: BooksApiService,
+    private route: ActivatedRoute
+  ) {
+    this.renderUI();
   }
 
   ngAfterViewInit(): void {
@@ -31,7 +34,7 @@ export class BookListComponent implements AfterViewInit {
     this.pageSize = event.pageSize;
   }
 
-  // public renderUI(book: Book[]): void {
-  //   this.books$ = 
-  // }
+  public renderUI(): void {
+    this.books$ = this.booksApiService.fetchBooks();
+  }
 }
