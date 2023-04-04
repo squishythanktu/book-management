@@ -54,6 +54,8 @@ export class AuthService {
       );
 
       if (loadedUser.token) {
+        console.log('Có sẳn token');
+
         this.user.next(loadedUser);
         // Đếm ngược thời gian còn lại (originDuration - now) và tự động đăng xuất khi đếm ngược đến 0
         const remainingExpirationDuration =
@@ -72,13 +74,11 @@ export class AuthService {
       clearTimeout(this.tokenExpirationTimer);
     }
   }
-
   autoLogout(remainingExpirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, remainingExpirationDuration);
   }
-
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'Username or password is incorrect!';
     return throwError(errorMessage);
@@ -93,6 +93,8 @@ export class AuthService {
       token
     );
     this.user.next(curUser);
+
+    localStorage.setItem('userData', JSON.stringify(curUser));
 
     localStorage.setItem('userData', JSON.stringify(curUser));
 

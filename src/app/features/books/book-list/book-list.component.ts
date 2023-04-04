@@ -2,7 +2,6 @@ import { BooksApiService, BooksResponseData } from './../books.api.service';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',

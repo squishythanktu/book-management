@@ -1,5 +1,5 @@
 import { AuthService } from './features/auth/auth.service';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',

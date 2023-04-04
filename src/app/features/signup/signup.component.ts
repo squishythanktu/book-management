@@ -32,7 +32,6 @@ export class SignupComponent {
       return;
     }
     this.isLoading = true;
-
     const nameValue = this.signupForm.get('name').value;
     const usernameValue = this.signupForm.get('username').value;
     const passwordValue = this.signupForm.get('password').value;
