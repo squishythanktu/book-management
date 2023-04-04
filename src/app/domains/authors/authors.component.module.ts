@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthorDetailModule } from './pages/author-detail/author-detail.component.module';
 import { AuthorUpdateModule } from './pages/author-update/author-update.component.module';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [AuthorsComponent],
   imports: [
@@ -15,10 +18,12 @@ import { AuthorUpdateModule } from './pages/author-update/author-update.componen
     ReactiveFormsModule,
     AuthorsRoutingModule,
     MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
     AuthorDetailModule,
     AuthorListModule,
     AuthorUpdateModule,
+    MatButtonModule,
   ],
   exports: [AuthorsComponent],
 })
