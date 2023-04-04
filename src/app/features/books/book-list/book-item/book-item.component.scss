@@ -21,6 +21,16 @@
     margin-right: auto;
   }
 
+  @include small-tablet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include mobile {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .book-cover {
     height: 45%;
     width: 100%;

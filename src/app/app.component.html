@@ -1,8 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="container" [style.display]="appShowModal ? 'none' : 'block'">
 =======
 <div class="container" (scroll)="onWindowScroll($event)">
 >>>>>>> e3e094e (add styles/spacing and fix some errors)
+=======
+<div
+  class="container"
+  (scroll)="onWindowScroll($event)"
+  [style.display]="appShowModal ? 'none' : 'block'"
+>
+>>>>>>> b17a1a3 (add sidebar modal & format code)
   <div class="header row">
     <app-header [(showModal)]="appShowModal"></app-header>
   </div>
