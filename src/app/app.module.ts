@@ -1,4 +1,3 @@
-import { FeaturesModule } from './features/features.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routes';
@@ -8,18 +7,22 @@ import { ShareModule } from './share/share/share.module';
 import { AuthInterceptorService } from './core/interceptors/auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
-
+import { DomainsModule } from './domains/domains.module';
+import { HeaderModule } from './share/components/header/header.component.module';
+import { SideBarModule } from './share/components/side-bar/side-bar.component.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FeaturesModule,
+    DomainsModule,
     ShareModule,
     MatIconModule,
-    FormsModule,
+    HeaderModule,
+    SideBarModule,
+    HttpClientModule,
   ],
   providers: [
     {

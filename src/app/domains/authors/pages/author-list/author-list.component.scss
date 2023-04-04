@@ -1,0 +1,73 @@
+@import "src/app/styles/styles/_mixin.scss";
+@import "src/app/styles/styles/_skeleton.scss";
+@import "src/app/styles/styles/_typography.scss";
+
+.authors-list-container,
+.skeleton-list-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .authors-list,
+  .skeleton-list {
+    width: 100%;
+    min-height: 680px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .author-item,
+    .skeleton-item {
+      display: inline-block;
+      padding: 5px;
+      width: fit-content;
+      height: fit-content;
+      @include desktop {
+        @include col-lg(3);
+      }
+
+      @include tablet {
+        @include col-md(2);
+      }
+
+      @include small-tablet {
+        @include col-md(3);
+      }
+
+      @include mobile {
+        @include col-sm(4);
+      }
+    }
+  }
+
+  .skeleton-list {
+    .skeleton-item {
+      max-width: 315px;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+
+      .skeleton {
+        width: 85%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    @include small-tablet {
+      justify-content: space-around;
+    }
+
+    @include mobile {
+      justify-content: space-around;
+    }
+  }
+}
+
+.not-found-container {
+  @include flex-center;
+  .not-found__img {
+    width: 40%;
+    height: 40%;
+  }
+}

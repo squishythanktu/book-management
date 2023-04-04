@@ -1,0 +1,22 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" yPosition="below" xPosition="before">
+  <button mat-menu-item color="primary" [routerLink]="[index, 'update']">
+    <mat-icon>edit</mat-icon>
+    <span>Edit</span>
+  </button>
+  <button
+    mat-menu-item
+    color="primary"
+    (click)="
+      openConfirmDeleteDialog(
+        'Delete book',
+        'Are you sure want to delete book?'
+      )
+    "
+  >
+    <mat-icon>delete</mat-icon>
+    <span>Delete</span>
+  </button>
+</mat-menu>

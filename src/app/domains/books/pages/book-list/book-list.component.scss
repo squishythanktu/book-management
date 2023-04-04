@@ -1,0 +1,35 @@
+@import "../../../../styles/styles/mixin";
+
+.books-list-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .book-list {
+    width: 100%;
+    min-height: 880px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .book-item {
+      display: inline-block;
+
+      @include desktop {
+        @include col-lg(4);
+      }
+
+      @include tablet {
+        @include col-md(3);
+      }
+
+      @include small-tablet {
+        @include col-md(6);
+      }
+
+      @include mobile {
+        @include col-sm(4);
+      }
+    }
+  }
+}
