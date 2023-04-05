@@ -1,6 +1,6 @@
-import { AuthService } from './features/auth/auth.service';
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from './domains/auth/services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

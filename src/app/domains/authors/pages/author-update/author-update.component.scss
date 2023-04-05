@@ -1,0 +1,42 @@
+@import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/spacing";
+
+.row {
+  .form-container {
+    margin: 10px auto;
+
+    @include desktop {
+      @include col-lg(6);
+    }
+
+    @include tablet {
+      @include col-md(4);
+    }
+
+    @include small-tablet {
+      @include col-md(4);
+    }
+
+    @include mobile {
+      @include col-sm(4);
+    }
+
+    .my-form {
+      width: 90%;
+      margin: 0 auto;
+
+      .form-content {
+        display: flex;
+        flex-direction: column;
+
+        .input-field {
+          width: 100%;
+        }
+
+        .cover-btn {
+          width: fit-content;
+        }
+      }
+    }
+  }
+}

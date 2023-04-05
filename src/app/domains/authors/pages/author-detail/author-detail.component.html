@@ -1,0 +1,34 @@
+<div class="row mt-5">
+  <div class="author-cover">
+    <img src="{{ author.cover }}" alt="The cover of author" />
+  </div>
+  <div class="author-table ml-5 mr-10">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="property">
+        <th mat-header-cell *matHeaderCellDef>Property</th>
+        <td mat-cell *matCellDef="let element">{{ element.property }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Value</th>
+        <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+<div class="row mt-5 author-books">
+  <h3 class="author-books__introduction mat-headline-1">
+    Books of this author:
+  </h3>
+  <div class="author-books__list mt-4">
+    <app-book-item
+      *ngFor="let book of author.books"
+      class="book-item"
+      [book]="book"
+      [index]="book.id"
+    ></app-book-item>
+  </div>
+</div>

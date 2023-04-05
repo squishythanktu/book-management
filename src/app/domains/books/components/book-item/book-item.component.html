@@ -1,0 +1,61 @@
+<mat-card
+  class="book-card m-5"
+  [ngStyle]="{ height: book.author ? '440px' : '360px' }"
+>
+  <div class="book-cover">
+    <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
+    <app-book-item-options
+      [index]="index"
+      class="book-options"
+    ></app-book-item-options>
+  </div>
+  <div class="book-content">
+    <div class="book-header p-5" *ngIf="book.categories">
+      <div class="book-categories">
+        <div
+          class="book-category mr-4 p-2"
+          *ngFor="
+            let category of book.categories | slice : 0 : 2;
+            let i = index
+          "
+        >
+          {{ category.name }}
+        </div>
+      </div>
+      <div class="book-year">{{ book.year }}</div>
+    </div>
+
+    <mat-card-content class="book-body">
+      <mat-card-title class="book-title">{{ book.name }}</mat-card-title>
+      <mat-card-subtitle class="book-description">{{
+        book.description
+      }}</mat-card-subtitle>
+    </mat-card-content>
+
+    <mat-card-footer class="book-footer p-5">
+      <div class="book-author" *ngIf="book.author">
+        <div class="book-author__cover pr-2">
+          <img
+            mat-card-image
+            src="{{ book.author.cover }}"
+            alt="Photo of a book"
+          />
+        </div>
+
+        <div class="book-author__name">{{ book.author.name }}</div>
+      </div>
+      <div class="book-link">
+        <a *ngIf="book.author; else noAuthor" [routerLink]="[index]"
+          ><span>Read more</span>
+          <mat-icon fontIcon="arrow_forward pl-1"></mat-icon>
+        </a>
+        <ng-template #noAuthor>
+          <a [routerLink]="['/books', index]"
+            ><span>Read more</span>
+            <mat-icon fontIcon="arrow_forward pl-1"></mat-icon>
+          </a>
+        </ng-template>
+      </div>
+    </mat-card-footer>
+  </div>
+</mat-card>

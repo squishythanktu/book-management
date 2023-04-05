@@ -1,0 +1,44 @@
+@import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/spacing";
+@import "../../../../styles/styles/typography";
+
+.row {
+  .form-container {
+    margin: 10px auto;
+    @include desktop {
+      @include col-lg(8);
+    }
+
+    @include tablet {
+      @include col-md(4);
+    }
+
+    @include small-tablet {
+      @include col-md(4);
+    }
+
+    @include mobile {
+      @include col-sm(4);
+    }
+
+    .my-form {
+      width: 90%;
+      margin: 0 auto;
+
+      .form-content {
+        .input-field {
+          width: 100%;
+        }
+
+        .inputs-small {
+          display: flex;
+          justify-content: space-between;
+
+          .input-field {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
