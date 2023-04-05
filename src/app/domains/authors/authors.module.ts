@@ -2,7 +2,6 @@ import { AuthorListModule } from './pages/author-list/author-list.component.modu
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AuthorsComponent } from './authors.component';
 import { AuthorsRoutingModule } from './authors.routes';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,9 +9,10 @@ import { AuthorDetailModule } from './pages/author-detail/author-detail.componen
 import { AuthorUpdateModule } from './pages/author-update/author-update.component.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthorsLayout } from './layouts/authors.layout';
 
 @NgModule({
-  declarations: [AuthorsComponent],
+  declarations: [AuthorsLayout],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -25,6 +25,6 @@ import { MatButtonModule } from '@angular/material/button';
     AuthorUpdateModule,
     MatButtonModule,
   ],
-  exports: [AuthorsComponent],
+  exports: [AuthorsLayout],
 })
 export class AuthorsModule {}

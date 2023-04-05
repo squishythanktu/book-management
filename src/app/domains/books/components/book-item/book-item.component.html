@@ -1,4 +1,7 @@
-<mat-card class="book-card m-5">
+<mat-card
+  class="book-card m-5"
+  [ngStyle]="{ height: book.author ? '440px' : '360px' }"
+>
   <div class="book-cover">
     <img mat-card-image src="{{ book.cover }}" alt="Photo of a book" />
     <app-book-item-options
@@ -7,7 +10,7 @@
     ></app-book-item-options>
   </div>
   <div class="book-content">
-    <div class="book-header p-5">
+    <div class="book-header p-5" *ngIf="book.categories">
       <div class="book-categories">
         <div
           class="book-category mr-4 p-2"
@@ -30,7 +33,7 @@
     </mat-card-content>
 
     <mat-card-footer class="book-footer p-5">
-      <div class="book-author">
+      <div class="book-author" *ngIf="book.author">
         <div class="book-author__cover pr-2">
           <img
             mat-card-image
@@ -42,10 +45,16 @@
         <div class="book-author__name">{{ book.author.name }}</div>
       </div>
       <div class="book-link">
-        <a [routerLink]="[index]"
+        <a *ngIf="book.author; else noAuthor" [routerLink]="[index]"
           ><span>Read more</span>
           <mat-icon fontIcon="arrow_forward pl-1"></mat-icon>
         </a>
+        <ng-template #noAuthor>
+          <a [routerLink]="['/books', index]"
+            ><span>Read more</span>
+            <mat-icon fontIcon="arrow_forward pl-1"></mat-icon>
+          </a>
+        </ng-template>
       </div>
     </mat-card-footer>
   </div>

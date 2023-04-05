@@ -1,3 +1,4 @@
+import { AuthorService } from './../../services/author.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { delay, Observable } from 'rxjs';

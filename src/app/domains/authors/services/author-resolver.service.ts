@@ -7,6 +7,7 @@ import {
 import { Author } from 'src/app/core/models/author.model';
 import { AuthorsApiService } from './authors.api.service';
 import { AuthorService } from './author.service';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthorResolverService implements Resolve<Author[]> {
@@ -15,9 +16,10 @@ export class AuthorResolverService implements Resolve<Author[]> {
     private authorService: AuthorService
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log('in author resolver state');
-
+  public resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<Author[]> | Author[] {
     const authors = this.authorService.getAuthors();
     if (authors.length === 0) {
       return this.authorsApiService.fetchAuthors();

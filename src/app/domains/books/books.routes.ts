@@ -1,16 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { BooksComponent } from './books.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { BookUpdateComponent } from './pages/book-update/book-update.component';
 import { BookDetailComponent } from './pages/book-detail/book-detail.component';
 import { BookResolverService } from './pages/book-update/book-resolver.service';
+import { BooksLayout } from './layouts/books.layout';
 
 const routes: Routes = [
   {
     path: 'books',
-    component: BooksComponent,
+    component: BooksLayout,
     canActivate: [AuthGuard],
 
     children: [

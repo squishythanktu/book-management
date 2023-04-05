@@ -3,10 +3,10 @@ import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
-  templateUrl: './books.component.html',
-  styleUrls: ['./books.component.scss'],
+  templateUrl: './books.layout.html',
+  styleUrls: ['./books.layout.scss'],
 })
-export class BooksComponent {
+export class BooksLayout {
   public hideAddButton: boolean = true;
   public hideBackButton: boolean = true;
 

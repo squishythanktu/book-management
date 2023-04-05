@@ -19,16 +19,16 @@
     </table>
   </div>
 </div>
-<div class="row mt-5">
+<div class="row mt-5 author-books">
   <h3 class="author-books__introduction mat-headline-1">
     Books of this author:
   </h3>
-  <div class="book-list mt-4">
-    <!-- <app-book-item
+  <div class="author-books__list mt-4">
+    <app-book-item
       *ngFor="let book of author.books"
       class="book-item"
       [book]="book"
       [index]="book.id"
-    ></app-book-item> -->
+    ></app-book-item>
   </div>
 </div>

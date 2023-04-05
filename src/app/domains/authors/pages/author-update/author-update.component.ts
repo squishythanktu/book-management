@@ -6,6 +6,7 @@ import { Author } from 'src/app/core/models/author.model';
 import { ConvertBase64 } from 'src/app/share/helpers/convertBase64.helper';
 import { AuthorsApiService } from '../../services/authors.api.service';
 import { AuthorService } from '../../services/author.service';
+import { DefaultImgConstant } from 'src/app/core/constants/default-img.constant';
 
 @Component({
   selector: 'app-author-update',
@@ -83,16 +84,21 @@ export class AuthorUpdateComponent {
       author.birthday = new Date(author.birthday);
       author.birthday.setHours(author.birthday.getHours() + 7);
     }
+    if (!author.cover) {
+      const defaultImg = DefaultImgConstant.author;
+      author.cover = defaultImg;
+    }
     return author;
   }
 
   public onFileSelected(event: any): void {
     this.selectedImg = event.target.files[0] ?? null;
+    console.log(typeof this.selectedImg);
+
     if (this.selectedImg) {
       this.convertBase64
         .ConvertBase64(this.selectedImg)
         .subscribe((base64String) => {
-          console.log(base64String);
           this.myForm.get('cover').setValue(base64String as string);
         });
     }

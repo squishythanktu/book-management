@@ -60,4 +60,38 @@
       }
     }
   }
+
+  &.author-books {
+    flex-direction: column;
+    .author-books__introduction {
+      margin: 0;
+    }
+
+    .author-books__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      .book-item {
+        display: inline-block;
+        padding: 5px;
+        width: fit-content;
+        height: fit-content;
+        @include desktop {
+          @include col-lg(3);
+        }
+
+        @include tablet {
+          @include col-md(2);
+        }
+
+        @include small-tablet {
+          @include col-md(3);
+        }
+
+        @include mobile {
+          @include col-sm(4);
+        }
+      }
+    }
+  }
 }

@@ -2,14 +2,14 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthorsApiService } from '../../domains/authors/services/authors.api.service';
+import { AuthorsApiService } from '../services/authors.api.service';
 
 @Component({
   selector: 'app-authors',
-  templateUrl: './authors.component.html',
-  styleUrls: ['./authors.component.scss'],
+  templateUrl: './authors.layout.html',
+  styleUrls: ['./authors.layout.scss'],
 })
-export class AuthorsComponent implements OnInit {
+export class AuthorsLayout implements OnInit {
   public hideBackButton: boolean = true;
   public hideAddButton: boolean = true;
   public authorSearchControl = new FormControl('');

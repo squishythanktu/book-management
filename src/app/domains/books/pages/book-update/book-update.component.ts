@@ -10,6 +10,7 @@ import { BooksApiService } from '../../services/books.api.service';
 import { Author } from 'src/app/core/models/author.model';
 import { AuthorsApiService } from 'src/app/domains/authors/services/authors.api.service';
 import { CategoriesApiService } from 'src/app/domains/categories/services/categories.api.service';
+import { DefaultImgConstant } from 'src/app/core/constants/default-img.constant';
 
 @Component({
   selector: 'app-book-update',
@@ -49,13 +50,17 @@ export class BookUpdateComponent {
   }
 
   public formFilter(form: FormGroup): Book {
-    //create book from form value
     const book = { ...form.value };
-    //modified some field
     delete book.author.books;
     book.categories.forEach((category: Category) => {
       delete category.books;
     });
+
+    if (!book.cover) {
+      const defaultImg = DefaultImgConstant.book;
+      book.cover = defaultImg;
+    }
+
     book.price = parseFloat(book.price);
     book.year = parseFloat(book.year);
     return book;
