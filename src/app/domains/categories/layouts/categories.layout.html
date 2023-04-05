@@ -1,0 +1,36 @@
+<div class="categories-container">
+  <div class="categories-actions">
+    <div class="category-actions__right">
+      <div class="back-btn mt-4 mb-4 ml-5" *ngIf="!hideBackButton">
+        <a routerLink="../categories">
+          <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+          <span>Back</span>
+        </a>
+      </div>
+      <form class="search-form mr-5 ml-6 mt-4">
+        <mat-form-field
+          class="search-form-field mat-subtitle-2"
+          appearance="outline"
+        >
+          <mat-label class="search-label mat-subtitle-2">
+            <mat-icon fontIcon="search"></mat-icon><span>Search category</span>
+          </mat-label>
+          <input
+            type="text"
+            matInput
+            [formControl]="categorySearchControl"
+            (change)="(onSearchValueChange)"
+          />
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="category-actions__left">
+      <div class="add-btn mt-4 mb-4 mr-5" *ngIf="!hideAddButton">
+        <a routerLink="add" mat-flat-button color="primary"
+          ><mat-icon fontIcon="add"></mat-icon><span>New Category</span></a
+        >
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

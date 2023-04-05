@@ -1,0 +1,10 @@
+<div class="category-list-container">
+  <div class="category-list mt-4">
+    <app-category-item
+      *ngFor="let category of categories$ | async"
+      class="category-item"
+      [category]="category"
+      [id]="category.id"
+    ></app-category-item>
+  </div>
+</div>

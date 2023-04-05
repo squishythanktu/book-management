@@ -1,0 +1,36 @@
+<!-- <div class="container">
+  <a class="card1" href="#">
+    <h3>This is option 1</h3>
+    <p class="small">
+      Card description with lots of great facts and interesting details.
+    </p>
+    <div class="go-corner" href="#">
+      <div class="go-arrow">→</div>
+    </div>
+  </a>
+</div> -->
+<mat-card class="category-card m-5">
+  <div class="category-actions p-4">
+    <app-category-item-options
+      [id]="id"
+      class="category-options"
+    ></app-category-item-options>
+  </div>
+  <div class="category-content">
+    <mat-card-title>
+      <div class="category-title centered">
+        {{ category.name }}
+      </div></mat-card-title
+    >
+    <mat-card-subtitle>
+      <div class="category-description centered">
+        {{ category.description }}
+      </div>
+    </mat-card-subtitle>
+  </div>
+  <div class="category-link">
+    <a [routerLink]="[id]">
+      <mat-icon fontIcon="arrow_forward pl-1"></mat-icon>
+    </a>
+  </div>
+</mat-card>
