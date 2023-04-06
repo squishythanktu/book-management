@@ -1,19 +1,28 @@
 @import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/skeleton";
+@import "../../../../styles/styles/typography";
+@import "../../../../styles/styles/spacing";
 
-.category-list-container {
+.category-list-container,
+.skeleton-list-container {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 650px;
 
-  .category-list {
+  .category-list,
+  .skeleton-list {
     width: 100%;
-    min-height: 500px;
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
 
-    .category-item {
+    .category-item,
+    .skeleton-item {
       display: inline-block;
+      width: fit-content;
+      height: fit-content;
 
       @include desktop {
         @include col-lg(3);
@@ -31,5 +40,36 @@
         @include col-sm(4);
       }
     }
+  }
+
+  .skeleton-list {
+    .skeleton-item {
+      height: 150px;
+      max-width: 250px;
+      display: flex;
+      justify-content: center;
+
+      .skeleton {
+        width: 85%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    @include small-tablet {
+      justify-content: space-around;
+    }
+
+    @include mobile {
+      justify-content: space-around;
+    }
+  }
+}
+
+.not-found-container {
+  @include flex-center;
+  .not-found__img {
+    width: 40%;
+    height: 40%;
   }
 }

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./category-item-options.component.scss'],
 })
 export class CategoryItemOptionsComponent {
-  @Input() index: number;
+  @Input() id: number;
 
   constructor(
     private dialog: MatDialog,
@@ -31,13 +31,15 @@ export class CategoryItemOptionsComponent {
 
     dialogRef.afterClosed().subscribe((dialogResult) => {
       if (dialogResult.result && dialogResult.result === true) {
+        console.log(dialogResult.result);
+
         let categories$: Observable<void>;
-        categories$ = this.categoriesApiService.deleteCategory(this.index);
-        categories$.subscribe();
+        categories$ = this.categoriesApiService.deleteCategory(this.id);
+        categories$.subscribe((response: void) => {});
+        this.router.navigate(['/categories']).then(() => {
+          window.location.reload();
+        });
       }
-      this.router.navigate(['/categories']).then(() => {
-        window.location.reload();
-      });
     });
   }
 }

@@ -18,11 +18,28 @@ export class CategoriesApiService {
   ) {}
 
   public fetchCategories(): Observable<Category[]> {
+    console.log('fetching categories...');
     return this.http.get<Category[]>(`${this.apiUrl}/categories`).pipe(
       tap((categories) => {
         this.categoriesService.setCategories(categories);
       })
     );
+  }
+
+  public addCategory(category: Category): Observable<Category> {
+    return this.http
+      .post<Category>(`${this.apiUrl}/categories`, category)
+      .pipe(tap((response) => this.categoriesService.addCategory(response)));
+  }
+
+  public UpdateCategory(id: number, category: Category): Observable<Category> {
+    return this.http
+      .put<Category>(`${this.apiUrl}/categories/${id}`, category)
+      .pipe(
+        tap((response) => {
+          this.categoriesService.updateCategory(id, response);
+        })
+      );
   }
 
   public deleteCategory(id: number): Observable<void> {
@@ -33,13 +50,13 @@ export class CategoriesApiService {
     );
   }
 
-  public searchChanged(newValue: string): void {
-    this.searchCategoryEmitter.next(newValue);
-  }
-
   public searchCategory(characters: string): Observable<Category[]> {
     return this.http.get<Category[]>(
       `${this.apiUrl}/categories/search?categoryName=${characters}`
     );
+  }
+
+  public searchChanged(newValue: string): void {
+    this.searchCategoryEmitter.next(newValue);
   }
 }

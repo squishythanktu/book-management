@@ -11,14 +11,12 @@
   max-width: 250px;
   display: flex;
   flex-direction: column;
-  background-color: #f2f8f9;
+  background-color: mat.get-color-from-palette($primary, 50);
   border-radius: 4px;
-  padding: 32px 24px;
-  margin: 12px;
   text-decoration: none;
   overflow: hidden;
-  @include card;
   z-index: 0;
+  @include card;
 
   &:before {
     content: "";
@@ -75,8 +73,8 @@
 
     .category-options {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 0px;
+      right: 0px;
       z-index: 10;
       @include link-style;
     }

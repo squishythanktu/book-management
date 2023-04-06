@@ -49,10 +49,10 @@ export class AuthorItemOptionsComponent {
             }
           }
         );
+        this.router.navigate(['/authors']).then(() => {
+          window.location.reload();
+        });
       }
-      this.router.navigate(['/authors']).then(() => {
-        window.location.reload();
-      });
     });
   }
 }

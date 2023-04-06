@@ -34,10 +34,10 @@ export class BookItemOptionsComponent {
         let books$: Observable<void>;
         books$ = this.booksApiService.deleteBook(this.index);
         books$.subscribe();
+        this.router.navigate(['/books']).then(() => {
+          window.location.reload();
+        });
       }
-      this.router.navigate(['/books']).then(() => {
-        window.location.reload();
-      });
     });
   }
 }

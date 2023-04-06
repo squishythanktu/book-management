@@ -17,7 +17,7 @@
     [length]="authorsCount"
     [pageSize]="pageSize"
     [pageSizeOptions]="[4, 8]"
-    (page)="onPageChanged($event)"
+    (page)="onPageChange($event)"
   >
   </mat-paginator>
 </div>
@@ -36,5 +36,5 @@
     alt="404 not found image"
     class="not-found__img"
   />
-  <div class="not-found__title mat-headline-1">Can't find any books!</div>
+  <div class="not-found__title mat-headline-1">Can't find any book!</div>
 </div>

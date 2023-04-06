@@ -40,14 +40,14 @@ export class AuthorListComponent implements AfterViewInit {
     });
   }
 
-  public onPageChanged(event: any): void {
+  public onPageChange(event: any): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
   }
 
   ngAfterViewInit(): void {
     this.paginator?.page.subscribe((event) => {
-      this.onPageChanged(event);
+      this.onPageChange(event);
     });
   }
 }
