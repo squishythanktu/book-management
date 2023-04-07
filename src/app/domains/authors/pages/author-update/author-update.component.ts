@@ -51,7 +51,6 @@ export class AuthorUpdateComponent {
 
     if (this.updateMode) {
       const author = this.authorService.getAuthor(this.id);
-      console.log('author: ', author);
       authorName = author.name;
       authorWebsite = author.website;
       authorBirthday = author.birthday;

@@ -1,30 +1,29 @@
 <!-- CONTENT -->
-<div class="author-list-container" *ngIf="!isLoading && !notFound">
-  <div class="author-list">
-    <app-author-item
+<div class="category-list-container" *ngIf="!isLoading && !notFound">
+  <div class="category-list mt-4">
+    <app-category-item
       *ngFor="
-        let authorEl of authors$
+        let category of categories$
           | async
           | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
       "
-      class="author-item"
-      [author]="authorEl"
-      [id]="authorEl.id"
-    ></app-author-item>
+      class="category-item"
+      [category]="category"
+      [id]="category.id"
+    ></app-category-item>
   </div>
   <mat-paginator
     class="paginator"
-    [length]="authorsCount"
+    [length]="categoriesCount"
     [pageSize]="pageSize"
     [pageSizeOptions]="[4, 8]"
     (page)="onPageChange($event)"
-  >
-  </mat-paginator>
+  ></mat-paginator>
 </div>
 <!-- SKELETON -->
 <div class="skeleton-list-container" *ngIf="isLoading">
   <div class="skeleton-list">
-    <div class="skeleton-item" *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
+    <div class="skeleton-item mb-7" *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
       <div class="skeleton"></div>
     </div>
   </div>
@@ -36,5 +35,5 @@
     alt="404 not found image"
     class="not-found__img"
   />
-  <div class="not-found__title mat-headline-1">Can't find any book!</div>
+  <div class="not-found__title mat-headline-1">Can't find any author!</div>
 </div>

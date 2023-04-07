@@ -1,18 +1,19 @@
-@import "src/app/styles/styles/_mixin.scss";
-@import "src/app/styles/styles/_skeleton.scss";
-@import "src/app/styles/styles/_typography.scss";
+@import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/skeleton";
+@import "../../../../styles/styles/typography";
 
-.authors-list-container,
+.author-list-container,
 .skeleton-list-container {
   height: 100%;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .authors-list,
+  .author-list,
   .skeleton-list {
     width: 100%;
-    min-height: 680px;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
 

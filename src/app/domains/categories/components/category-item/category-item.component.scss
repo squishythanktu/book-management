@@ -1,0 +1,121 @@
+@use "@angular/material" as mat;
+@import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/variable";
+@import "../../../../styles/material/theme";
+@import "../../../../styles/styles/spacing";
+
+.category-card {
+  display: block;
+  position: relative;
+  height: 150px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: mat.get-color-from-palette($primary, 50);
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 0;
+  @include card;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -16px;
+    right: -16px;
+    background: mat.get-color-from-palette($primary, 700);
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(21);
+  }
+
+  &:hover {
+    .category-options {
+      button {
+        color: mat.get-contrast-color-from-palette($primary, 700);
+      }
+    }
+
+    .category-title {
+      transition: all 0.3s ease-out;
+      color: mat.get-contrast-color-from-palette($primary, 700);
+    }
+
+    .category-description {
+      transition: all 0.3s ease-out;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  @include small-tablet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include mobile {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .category-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-s;
+
+    .category-options {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      z-index: 10;
+      @include link-style;
+    }
+  }
+
+  .category-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+
+    .category-title {
+      @include limit-line(1);
+    }
+
+    .category-description {
+      @include limit-line(2);
+      font-size: $font-size-s;
+    }
+  }
+
+  .category-link {
+    a {
+      @include flex-center;
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      bottom: 0;
+      right: 0;
+      background-color: mat.get-color-from-palette($primary, 700);
+      border-radius: 30px 0px 0px 0px;
+      text-decoration: none;
+      color: white;
+
+      mat-icon {
+        @include flex-center;
+        transform: translate(3px, 3px);
+        font-size: $font-size-s;
+      }
+    }
+  }
+}

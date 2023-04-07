@@ -1,29 +1,30 @@
+import { CategoriesApiService } from 'src/app/domains/categories/services/categories.api.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
 import {
+  Observable,
   Subscription,
   debounceTime,
   distinctUntilChanged,
   switchMap,
 } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthorsApiService } from '../services/authors.api.service';
 
 @Component({
-  selector: 'app-authors',
-  templateUrl: './authors.layout.html',
-  styleUrls: ['./authors.layout.scss'],
+  selector: 'app-categories',
+  templateUrl: './categories.layout.html',
+  styleUrls: ['./categories.layout.scss'],
 })
-export class AuthorsLayout implements OnInit, OnDestroy {
+export class CategoriesLayout implements OnInit, OnDestroy {
   public hideBackButton: boolean = true;
   public hideAddButton: boolean = false;
   public hideSearchForm: boolean = false;
   public router$: Subscription;
-  public authorSearchControl = new FormControl('');
+  public categorySearchControl = new FormControl('');
 
   constructor(
     private router: Router,
-    private authorsApiService: AuthorsApiService
+    private categoriesApiService: CategoriesApiService
   ) {}
 
   ngOnInit(): void {
@@ -33,23 +34,24 @@ export class AuthorsLayout implements OnInit, OnDestroy {
         const url = event.urlAfterRedirects;
         this.hideAddButton =
           url.indexOf('add') !== -1 || url.indexOf('update') !== -1;
-        this.hideBackButton = url.endsWith('authors') ? true : false;
+        this.hideBackButton = url.endsWith('categories') ? true : false;
         this.hideSearchForm = true;
       }
     });
   }
 
   public onSearchValueChange(): void {
-    this.authorSearchControl.valueChanges
+    this.categorySearchControl.valueChanges
       .pipe(
         debounceTime(500), // wait for 500ms before emitting the latest value
         distinctUntilChanged(), // only emit if the value has changed
         switchMap(async (newValue) =>
-          this.authorsApiService.searchChanged(newValue)
+          this.categoriesApiService.searchChanged(newValue)
         )
       )
       .subscribe();
   }
+
   ngOnDestroy(): void {
     this.router$.unsubscribe();
   }

@@ -1,8 +1,5 @@
 <div class="row mt-5">
-  <div class="author-cover">
-    <img src="{{ author.cover }}" alt="The cover of author" />
-  </div>
-  <div class="author-table ml-5 mr-10">
+  <div class="category-table">
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="property">
         <th mat-header-cell *matHeaderCellDef>Property</th>
@@ -19,13 +16,13 @@
     </table>
   </div>
 </div>
-<div class="row mt-5 author-books" *ngIf="author.books.length > 0">
-  <h3 class="author-books__introduction mat-headline-1">
-    Books of this author:
+<div class="row mt-5 category-books" *ngIf="category.books.length > 0">
+  <h3 class="category-books__introduction mat-headline-1">
+    Books of this category:
   </h3>
-  <div class="author-books__list mt-4">
+  <div class="category-books__list mt-4">
     <app-book-item
-      *ngFor="let book of author.books"
+      *ngFor="let book of category.books"
       class="book-item"
       [book]="book"
       [index]="book.id"

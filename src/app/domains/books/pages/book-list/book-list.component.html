@@ -1,21 +1,31 @@
-<div class="books-list-container" *ngIf="books$ | async as books">
-  <div class="book-list mt-4">
-    <app-book-item
-      *ngFor="
-        let BookEl of books.data
-          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
-      "
-      class="book-item"
-      [book]="BookEl"
-      [index]="BookEl.id"
-    ></app-book-item>
+<div class="book-list-container" *ngIf="!isLoading">
+  <div *ngIf="books$ | async as books">
+    <div class="book-list mt-4">
+      <app-book-item
+        *ngFor="
+          let BookEl of books.data
+            | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
+        "
+        class="book-item"
+        [book]="BookEl"
+        [index]="BookEl.id"
+      ></app-book-item>
+    </div>
+    <mat-paginator
+      class="paginator"
+      [length]="books.pagination?.totalItems"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[3, 6]"
+      (page)="onPageChanged($event)"
+    >
+    </mat-paginator>
   </div>
-  <mat-paginator
-    class="paginator"
-    [length]="books.pagination?.totalItems"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[3, 6]"
-    (page)="onPageChanged($event)"
-  >
-  </mat-paginator>
+</div>
+<!-- SKELETON -->
+<div class="skeleton-list-container" *ngIf="isLoading">
+  <div class="skeleton-list">
+    <div class="skeleton-item" *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
+      <div class="skeleton"></div>
+    </div>
+  </div>
 </div>
