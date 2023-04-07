@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { CategoryDetailModule } from './pages/category-detail/category-detail.component.module';
+import { CategoryUpdateModule } from './pages/category-update/category-update.component.module';
 
 @NgModule({
   declarations: [CategoriesLayout],
@@ -16,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     CategoriesRoutingModule,
     CategoryListModule,
+    CategoryDetailModule,
+    CategoryUpdateModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

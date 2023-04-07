@@ -1,0 +1,75 @@
+@use "@angular/material" as mat;
+@import "../../../../styles/material/theme";
+@import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/spacing";
+@import "../../../../styles/styles/variable";
+
+.row {
+  @include small-tablet {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  .category-table {
+    width: 70%;
+    min-width: 250px;
+
+    @include small-tablet {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @include mobile {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    table {
+      border: 1px solid $border-table-color;
+      border-radius: 5px;
+
+      th {
+        font-weight: 500;
+        background-color: mat.get-color-from-palette($primary, 700);
+        color: mat.get-contrast-color-from-palette($primary, 700);
+      }
+    }
+  }
+
+  &.category-books {
+    flex-direction: column;
+    .category-books__introduction {
+      margin: 0;
+    }
+
+    .category-books__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      .book-item {
+        display: inline-block;
+        padding: 5px;
+        width: fit-content;
+        height: fit-content;
+        @include desktop {
+          @include col-lg(3);
+        }
+
+        @include tablet {
+          @include col-md(2);
+        }
+
+        @include small-tablet {
+          @include col-md(3);
+        }
+
+        @include mobile {
+          @include col-sm(4);
+        }
+      }
+    }
+  }
+}

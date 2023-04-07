@@ -1,6 +1,6 @@
 import { AuthorService } from './../../services/author.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { delay, Observable } from 'rxjs';
 import { Author } from 'src/app/core/models/author.model';
 import { AuthorsApiService } from '../../services/authors.api.service';
@@ -10,7 +10,7 @@ import { AuthorsApiService } from '../../services/authors.api.service';
   templateUrl: './author-list.component.html',
   styleUrls: ['./author-list.component.scss'],
 })
-export class AuthorListComponent implements AfterViewInit {
+export class AuthorListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   public pageSize: number = 8;
   public pageIndex: number = 0;
@@ -19,7 +19,9 @@ export class AuthorListComponent implements AfterViewInit {
   public isLoading: boolean = false;
   public notFound: boolean = false;
 
-  constructor(private authorsApiService: AuthorsApiService) {
+  constructor(private authorsApiService: AuthorsApiService) {}
+
+  ngOnInit(): void {
     this.authorsApiService.searchAuthorEmitter.subscribe((searchResult) => {
       this.isLoading = true;
       this.notFound = false;

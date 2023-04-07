@@ -32,7 +32,7 @@ export class CategoriesApiService {
       .pipe(tap((response) => this.categoriesService.addCategory(response)));
   }
 
-  public UpdateCategory(id: number, category: Category): Observable<Category> {
+  public updateCategory(id: number, category: Category): Observable<Category> {
     return this.http
       .put<Category>(`${this.apiUrl}/categories/${id}`, category)
       .pipe(

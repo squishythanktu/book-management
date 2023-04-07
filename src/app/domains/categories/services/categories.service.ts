@@ -12,7 +12,7 @@ export class CategoriesService {
   }
 
   public getCategory(id: number): Category {
-    return this.categories[id];
+    return this.categories.find((category) => category.id == id);
   }
 
   public setCategories(categories: Category[]): void {

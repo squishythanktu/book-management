@@ -1,35 +1,74 @@
 @import "../../../../styles/styles/mixin";
+@import "../../../../styles/styles/skeleton";
+@import "../../../../styles/styles/typography";
 
-.book-list-container {
+.book-list-container,
+.skeleton-list-container {
   height: 100%;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .book-list {
+  .book-list,
+  .skeleton-list {
     width: 100%;
-    min-height: 880px;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
 
-    .book-item {
+    .book-item,
+    .skeleton-item {
       display: inline-block;
-
+      padding: 5px;
+      width: fit-content;
+      height: fit-content;
       @include desktop {
-        @include col-lg(4);
+        @include col-lg(3);
       }
 
       @include tablet {
-        @include col-md(3);
+        @include col-md(2);
       }
 
       @include small-tablet {
-        @include col-md(6);
+        @include col-md(3);
       }
 
       @include mobile {
         @include col-sm(4);
       }
     }
+  }
+
+  .skeleton-list {
+    .skeleton-item {
+      max-width: 315px;
+      height: 420px;
+      display: flex;
+      justify-content: center;
+
+      .skeleton {
+        width: 85%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    @include small-tablet {
+      justify-content: space-around;
+    }
+
+    @include mobile {
+      justify-content: space-around;
+    }
+  }
+}
+
+.not-found-container {
+  @include flex-center;
+  .not-found__img {
+    width: 40%;
+    height: 40%;
   }
 }

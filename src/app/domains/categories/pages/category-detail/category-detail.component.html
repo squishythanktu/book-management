@@ -1,1 +1,31 @@
-<p>category-detail works!</p>
+<div class="row mt-5">
+  <div class="category-table">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="property">
+        <th mat-header-cell *matHeaderCellDef>Property</th>
+        <td mat-cell *matCellDef="let element">{{ element.property }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Value</th>
+        <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
+<div class="row mt-5 category-books" *ngIf="category.books.length > 0">
+  <h3 class="category-books__introduction mat-headline-1">
+    Books of this category:
+  </h3>
+  <div class="category-books__list mt-4">
+    <app-book-item
+      *ngFor="let book of category.books"
+      class="book-item"
+      [book]="book"
+      [index]="book.id"
+    ></app-book-item>
+  </div>
+</div>

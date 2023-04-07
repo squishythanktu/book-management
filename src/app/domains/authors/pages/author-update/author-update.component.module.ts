@@ -16,10 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatDatepickerModule,
     MatInputModule,
-    MatNativeDateModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [AuthorUpdateComponent],
 })

@@ -1,7 +1,12 @@
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import {
+  Subscription,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+} from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthorsApiService } from '../services/authors.api.service';
 
 @Component({
@@ -9,27 +14,29 @@ import { AuthorsApiService } from '../services/authors.api.service';
   templateUrl: './authors.layout.html',
   styleUrls: ['./authors.layout.scss'],
 })
-export class AuthorsLayout implements OnInit {
+export class AuthorsLayout implements OnInit, OnDestroy {
   public hideBackButton: boolean = true;
-  public hideAddButton: boolean = true;
+  public hideAddButton: boolean = false;
+  public hideSearchForm: boolean = false;
+  public router$: Subscription;
   public authorSearchControl = new FormControl('');
 
   constructor(
     private router: Router,
     private authorsApiService: AuthorsApiService
-  ) {
-    this.router.events.subscribe((event) => {
+  ) {}
+
+  ngOnInit(): void {
+    this.onSearchValueChange();
+    this.router$ = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
         this.hideAddButton =
           url.indexOf('add') !== -1 || url.indexOf('update') !== -1;
         this.hideBackButton = url.endsWith('authors') ? true : false;
+        this.hideSearchForm = true;
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.onSearchValueChange();
   }
 
   public onSearchValueChange(): void {
@@ -42,5 +49,8 @@ export class AuthorsLayout implements OnInit {
         )
       )
       .subscribe();
+  }
+  ngOnDestroy(): void {
+    this.router$.unsubscribe();
   }
 }

@@ -1,1 +1,51 @@
-<p>category-update works!</p>
+<div class="row">
+  <div class="form-container">
+    <mat-card>
+      <form
+        class="my-form"
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmitCategory(myForm)"
+      >
+        <mat-card-title class="mt-5 mb-5 centered mat-headline-1">{{
+          updateMode ? "Update category" : "Add new category"
+        }}</mat-card-title>
+        <div class="form-content">
+          <!-- NAME -->
+          <mat-form-field class="input-field mat-subtitle-2">
+            <mat-label class="label-input">Name</mat-label>
+            <input matInput placeholder="Ex. Romantic" formControlName="name" />
+            <mat-error *ngIf="myForm.get('name').hasError('required')"
+              >Name is <strong>required</strong></mat-error
+            >
+          </mat-form-field>
+          <!-- DESCRIPTION -->
+          <mat-form-field class="input-field mat-subtitle-2">
+            <mat-label class="label-input">Description</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Contain a lot of touching books"
+              formControlName="description"
+            />
+            <mat-error *ngIf="myForm.get('description').hasError('required')"
+              >Description is <strong>required</strong></mat-error
+            >
+          </mat-form-field>
+          <!--SUBMIT BUTTON -->
+          <div class="actions-btn">
+            <div class="submit-btn">
+              <button
+                mat-raised-button
+                color="primary"
+                class="submit-btn"
+                type="submit"
+                [disabled]="!myForm.valid"
+              >
+                {{ updateMode ? "Update category" : "Add new category" }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

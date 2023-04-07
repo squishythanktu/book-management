@@ -27,8 +27,6 @@ export class AuthorDetailComponent {
 
   public loadAuthorDetails(): void {
     this.author = this.authorService.getAuthor(this.id);
-    console.log(this.author);
-
     this.dataSource = new MatTableDataSource([
       { property: 'Name', value: this.author.name },
       { property: 'Website', value: this.author.website },

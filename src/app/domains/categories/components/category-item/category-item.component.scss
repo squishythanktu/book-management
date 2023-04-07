@@ -94,10 +94,6 @@
     .category-description {
       @include limit-line(2);
       font-size: $font-size-s;
-
-      @include desktop {
-        @include limit-line(3);
-      }
     }
   }
 
